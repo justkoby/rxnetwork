@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import Home from './Home';
 import About from './About';
@@ -29,7 +29,7 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="logo">
           <Link to="/" style={{ textDecoration: 'none' }} onClick={() => setIsMenuOpen(false)}>
-            <h2 style={{ color: '#1a237e', fontWeight: 800 }}>RxNetwork</h2>
+            <img src="/RxN-Logo.png" alt="RxNetwork Logo" className="navbar-logo-img" />
           </Link>
         </div>
 
@@ -39,10 +39,10 @@ const Navbar = () => {
         </button>
 
         <ul className={`nav-links ${isMenuOpen ? 'mobile-open' : ''}`}>
-          <li><Link to="/about" onClick={() => setIsMenuOpen(false)}>About Us</Link></li>
-          <li><Link to="/email-marketing" onClick={() => setIsMenuOpen(false)}>Email Marketing</Link></li>
-          <li><Link to="/poc-marketing" onClick={() => setIsMenuOpen(false)}>POC Marketing</Link></li>
-          <li><Link to="/blog" onClick={() => setIsMenuOpen(false)}>Insights</Link></li>
+          <li><NavLink to="/about" onClick={() => setIsMenuOpen(false)}>About Us</NavLink></li>
+          <li><NavLink to="/email-marketing" onClick={() => setIsMenuOpen(false)}>Email Marketing</NavLink></li>
+          <li><NavLink to="/poc-marketing" onClick={() => setIsMenuOpen(false)}>POC Marketing</NavLink></li>
+          <li><NavLink to="/blog" onClick={() => setIsMenuOpen(false)}>Insights</NavLink></li>
           <li className="mobile-only-cta">
             <Link to="/get-started" onClick={() => setIsMenuOpen(false)}>
               <button className="btn-primary">Get Started Now</button>
@@ -65,7 +65,7 @@ const Footer = () => (
     <div className="container">
       <div className="footer-grid">
         <div className="footer-brand">
-          <h2 className="footer-logo">RxNetwork</h2>
+          <img src="/RxN-Logo_white.png" alt="RxNetwork Logo" className="footer-logo-img" />
           <p className="footer-description">
             A premium healthcare media platform delivering targeted access to 
             physicians and clinicians through data-driven advertising and 

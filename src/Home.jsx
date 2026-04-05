@@ -53,9 +53,12 @@ const Hero = () => {
 
           {/* Right Side: Image and Stats */}
           <div className="hero-image-container animate-slide-in">
-            <img 
-              src="/doctor.png" 
-              alt="Healthcare Specialist" 
+            <video 
+              src="/opening-vid.webm" 
+              autoPlay 
+              muted 
+              loop 
+              playsInline 
               className="doctor-image"
             />
             
@@ -219,21 +222,21 @@ const SolutionsSection = () => {
       description: "All content served programmatically for faster activation and real-time optimization. No IOs, manual trafficking or reporting.",
       cta: "Start a Programmatic Campaign",
       bg: "#3b82f6",
-      image: "https://images.unsplash.com/photo-1576091160550-217359f42f8c?auto=format&fit=crop&q=80&w=800"
+      image: "/img-1-26.jpg"
     },
     {
       title: "Targeting & Data",
       description: "NPI, ME, DGID and contextual signals for limited specialty clinician and care teams with clinical relevance.",
       cta: "View Targeting Options",
       bg: "#2563eb",
-      image: "https://images.unsplash.com/photo-1551288049-bbbda536639a?auto=format&fit=crop&q=80&w=800"
+      image: "/img-2-26.jpg"
     },
     {
       title: "Content Marketing & Email",
       description: "Custom content creation, specialty newsletters, and email programs that engage clinicians with trusted medical information.",
       cta: "Browse Content Programs",
       bg: "#1d4ed8",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
+      image: "/img-3-26.jpg"
     },
     {
       title: "Ad Quality & Viewability",

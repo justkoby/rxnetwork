@@ -22,22 +22,28 @@ import {
 
 const AboutHero = () => (
   <section className="about-hero animate-blur-fade">
+    <video 
+      src="/bg-vd-2.webm" 
+      autoPlay 
+      muted 
+      loop 
+      playsInline 
+      className="about-hero-video"
+    />
+    <div className="hero-overlay" />
     <div className="container">
       <div className="about-hero-content">
-        <h1 className="hero-title">
+        <h1 className="hero-title white">
           Healthcare-Only Media. <br />
           <span>Deterministic HCP Reach. Zero Waste.</span>
         </h1>
-        <p className="hero-description">
+        <p className="hero-description light-text">
           RxNetwork connects premium medical publishers with verified HCP demand from leading pharma, hospitals, biotech, and medical device advertisers.
         </p>
         <div className="hero-cta">
           <button className="btn-primary">Partner With Us</button>
-          <button className="btn-outline">See Our Capabilities</button>
+          <button className="btn-outline white-btn">See Our Capabilities</button>
         </div>
-      </div>
-      <div className="about-hero-image">
-        <img src="/about-hero.png" alt="Medical Tech Background" />
       </div>
     </div>
   </section>

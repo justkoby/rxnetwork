@@ -10,7 +10,7 @@ export const blogPosts = [
       <p>Researchers believe understanding the link between Major Depressive Disorder (MDD) and smell loss is key to improving clinical outcomes. This study explores the psychological impact of sensory deprivation and how clinical screening for depression should be integrated into standard ENT or neurology workflows.</p>
       <p>The study utilized standardized QoL assessments and olfactory threshold testing to draw a direct correlation between the severity of dysfunction and the prevalence of depressive symptoms in a cohort of 200 patients.</p>
     `,
-    image: "/ad-units.png", // Placeholder using existing assets
+    image: "/placeholder-01.png", // Placeholder using existing assets
     author: "RxNetwork Editorial"
   },
   {
@@ -24,7 +24,7 @@ export const blogPosts = [
       <p>This study aims to pinpoint tailored L-T4 replacement dose benchmarks for clinical implementation. By analyzing dosage requirements against BMI and body surface area, the research provides a more granular framework for endocrinologists managing post-surgical thyroid cancer patients.</p>
       <p>Findings suggest that weight-based dosing alone may be insufficient, necessitating a multifactorial approach that considers metabolic rate and lean body mass.</p>
     `,
-    image: "/targeting-graphic.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   },
   {
@@ -53,7 +53,7 @@ export const blogPosts = [
       <h3>Conclusion</h3>
       <p>This study was aimed at demonstrating the efficacy of peripheral nerve ultrasound carried out once in the diagnosis of type 2 diabetic peripheral neuropathy. Peripheral nerve ultrasound may be a very beneficial tool in the early diagnosis of peripheral neuropathy and severity assessment prior to the onset of symptoms and alterations in nerve conduction studies.</p>
     `,
-    image: "/endo-neuropathy.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   },
   {
@@ -63,7 +63,7 @@ export const blogPosts = [
     category: "Oncology Tool",
     excerpt: "Professional prognostic scoring model for myelofibrosis risk assessment.",
     content: "<p>This clinical tool provides prognostic scoring for patients with myelofibrosis, utilizing IPSS, DIPSS, and DIPSS-Plus criteria to guide treatment decisions.</p>",
-    image: "/ad-units.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -73,7 +73,7 @@ export const blogPosts = [
     category: "Oncology Tool",
     excerpt: "Equianalgesic opioid conversion tool for clinical pain management.",
     content: "<p>Calculate equianalgesic doses for switching between different opioid medications in chronic pain management.</p>",
-    image: "/ad-units.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -83,7 +83,7 @@ export const blogPosts = [
     category: "Oncology Tool",
     excerpt: "Selection guidelines for nonsteroidal anti-inflammatory drugs.",
     content: "<p>Algorithm-based tool to assist in the selection of NSAIDs based on patient risk factors and inflammatory profile.</p>",
-    image: "/ad-units.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -93,7 +93,7 @@ export const blogPosts = [
     category: "Oncology Tool",
     excerpt: "Calculate ANC to assess neutropenia risk in oncology patients.",
     content: "<p>Quickly calculate the Absolute Neutrophil Count (ANC) from WBC and differential counts.</p>",
-    image: "/ad-units.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -103,7 +103,7 @@ export const blogPosts = [
     category: "Oncology Tool",
     excerpt: "Multi-formula BSA calculator for precise chemotherapy dosing.",
     content: "<p>Calculate BSA using DuBois, Mosteller, Haycock, and Gehan-George formulas for oncological dosing accuracy.</p>",
-    image: "/ad-units.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -113,7 +113,7 @@ export const blogPosts = [
     category: "Oncology Tool",
     excerpt: "Dose calculation for Carboplatin based on Calvert formula.",
     content: "<p>Calculate Carboplatin dosage using the target Area Under the Curve (AUC) and GFR/Creatinine Clearance.</p>",
-    image: "/ad-units.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -123,7 +123,7 @@ export const blogPosts = [
     category: "Oncology Tool",
     excerpt: "Calculate RFI and FE-NA for renal assessment.",
     content: "<p>Calculate the Renal Failure Index and Fractional Excretion of Sodium (FE-NA) to evaluate acute kidney injury.</p>",
-    image: "/ad-units.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -133,7 +133,7 @@ export const blogPosts = [
     category: "Oncology Tool",
     excerpt: "Standard CRCL calculation using Cockcroft-Gault formula.",
     content: "<p>Calculate estimated creatinine clearance for renal-adjusted dosing.</p>",
-    image: "/ad-units.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -143,7 +143,7 @@ export const blogPosts = [
     category: "Oncology Tool",
     excerpt: "Guidelines for PCA pump parameter settings.",
     content: "<p>Clinical guidelines for setting bolus doses, lockout intervals, and basal rates in PCA therapy.</p>",
-    image: "/ad-units.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -153,7 +153,7 @@ export const blogPosts = [
     category: "Clinical Tool",
     excerpt: "Potentially inappropriate medication list for geriatric patients.",
     content: "<p>Access the 2023 updated Beers Criteria for medication management in older adults.</p>",
-    image: "/targeting-graphic.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -163,7 +163,7 @@ export const blogPosts = [
     category: "Clinical Tool",
     excerpt: "Standard protocol for managing acute allergic drug responses.",
     content: "<p>Clinical guide for the 12-step rapid desensitization protocol for chemotherapy or biologics.</p>",
-    image: "/targeting-graphic.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -173,7 +173,7 @@ export const blogPosts = [
     category: "Clinical Tool",
     excerpt: "Estimate daily protein needs based on clinical condition.",
     content: "<p>Calculate estimated protein requirements for healthy individuals and patients with metabolic stress.</p>",
-    image: "/targeting-graphic.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -183,7 +183,7 @@ export const blogPosts = [
     category: "Clinical Tool",
     excerpt: "Estimate caloric requirements using standard metabolic formulas.",
     content: "<p>Calculate BMR and total daily energy expenditure using Harris-Benedict and Mifflin-St Jeor equations.</p>",
-    image: "/targeting-graphic.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -193,7 +193,7 @@ export const blogPosts = [
     category: "Clinical Tool",
     excerpt: "Standard tool for balance and fall risk assessment.",
     content: "<p>Clinical implementation of the Berg Balance Scale for elderly and post-op fall prevention.</p>",
-    image: "/targeting-graphic.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -203,7 +203,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Discussion of the link between inflammatory bowel disease and increased cancer risk.",
     content: "<p>New research suggests a significant correlation between chronic IBD and the risk of opportunistic infections and gastrointestinal cancers.</p>",
-    image: "/email-hero.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial",
     sourceUrl: "https://globalrph.com/2023/07/ibd-a-link-to-cancer-and-infection/"
   },
@@ -214,7 +214,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Impact of prostate cancer history on renal transplant eligibility and outcomes.",
     content: "<p>This study evaluates the post-transplant risk for patients with a previous diagnosis of prostate cancer.</p>",
-    image: "/email-hero.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial",
     sourceUrl: "https://globalrph.com/2023/07/renal-transplant-prostate-cancer/"
   },
@@ -225,7 +225,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Comorbidity analysis of COPD and metabolic disorders.",
     content: "<p>Investigating the increased prevalence of COPD among patients with elevated HbA1c levels.</p>",
-    image: "/email-hero.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   },
   {
@@ -235,7 +235,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Evaluating non-invasive spectral imaging for melanoma detection.",
     content: "<p>Advancements in diagnostic tech now allow for high-probability melanoma screening without initial surgical biopsy.</p>",
-    image: "/email-hero.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   },
   {
@@ -245,7 +245,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Analysis of hormonal suppression in chronic opioid therapy.",
     content: "<p>Clinical study on the suppression of the hypothalamic-pituitary-adrenal axis during long-term pain management.</p>",
-    image: "/email-hero.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   },
   {
@@ -255,7 +255,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Meta-analysis of sarcopenia as a prognostic factor in ovarian cancer.",
     content: "<p>This meta-analysis concludes that low skeletal muscle index is strongly linked to poorer outcomes in ovarian cancer survivors.</p>",
-    image: "/email-hero.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   },
   {
@@ -265,7 +265,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Link between lipid profiles and intraocular pressure elevation.",
     content: "<p>Recent findings suggest that high cholesterol levels may be a significant indicator for early glaucoma screening.</p>",
-    image: "/email-hero.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   },
   {
@@ -275,7 +275,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Streamlining health screenings for post-menopausal women.",
     content: "<p>Evaluating the clinical efficiency of performing BMD scans during routine mammography visits.</p>",
-    image: "/email-hero.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   },
   {
@@ -285,7 +285,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Community-based screening efficacy for cardiovascular risk reduction.",
     content: "<p>Reviewing the impact of proactive community hypertension screening on hospital admission rates.</p>",
-    image: "/email-hero.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   },
   {
@@ -295,7 +295,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Assessing the efficacy of prophylactic levofloxacin in pediatric ALL.",
     content: "<p>Clinical study on reducing febrile neutropenia episodes in children undergoing intensive chemotherapy for leukemia.</p>",
-    image: "/ad-units.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   },
   {
@@ -305,7 +305,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Long-term monitoring of cardiotoxicity in breast cancer survivors.",
     content: "<p>This research maps the incidence of heart failure and arrhythmias in patients treated with anthracyclines and HER2-targeted therapies.</p>",
-    image: "/targeting-graphic.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   },
   {
@@ -315,7 +315,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Comparative analysis of immunotherapy deployment strategies.",
     content: "<p>Evaluating survival outcomes in non-small cell lung cancer patients using PD-1 inhibitors as primary vs combined therapy.</p>",
-    image: "/email-hero.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   },
   {
@@ -325,7 +325,7 @@ export const blogPosts = [
     category: "Oncology Tool",
     excerpt: "Optimizing biopsy decisions using pre-procedural MRI metrics.",
     content: "<p>This calculator integrates PI-RADS scores and PSA density to predict the likelihood of clinically significant prostate cancer.</p>",
-    image: "/ad-units.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Clinical Team"
   },
   {
@@ -335,7 +335,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Analyzing the prevalence of PTSD and anxiety in long-term survivors.",
     content: "<p>Research into the long-term psychological impact of cancer diagnosis and the efficacy of community-based support programs.</p>",
-    image: "/targeting-graphic.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   },
   {
@@ -345,7 +345,7 @@ export const blogPosts = [
     category: "Research",
     excerpt: "Efficacy of dual endothelin receptor antagonism.",
     content: "<p>Results from the Phase 3 PRECISION trial on aprocitentan for patients with uncontrolled blood pressure despite multi-drug therapy.</p>",
-    image: "/email-hero.png",
+    image: "/placeholder-01.png",
     author: "RxNetwork Editorial"
   }
 ];
