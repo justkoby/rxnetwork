@@ -75,13 +75,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Side Arrows (Visual only as per design) */}
-      <button className="nav-arrow left" style={{ position: 'absolute', left: '2rem', top: '50%', background: 'none', border: 'none', color: '#3b82f6', cursor: 'pointer' }}>
-        <ChevronLeft size={48} />
-      </button>
-      <button className="nav-arrow right" style={{ position: 'absolute', right: '2rem', top: '50%', background: 'none', border: 'none', color: '#3b82f6', cursor: 'pointer' }}>
-        <ChevronRight size={48} />
-      </button>
     </section>
   );
 };
