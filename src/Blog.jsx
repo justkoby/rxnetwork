@@ -96,7 +96,7 @@ const Blog = () => {
         {visibleCount < filteredPosts.length && (
           <div className="load-more-wrapper text-center">
             <button 
-              className="btn-secondary"
+              className="btn-secondary btn-load-more"
               onClick={() => setVisibleCount(prev => prev + 9)}
             >
               Load More Resources <ChevronDown size={18} />

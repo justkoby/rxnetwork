@@ -5213,3 +5213,82 @@ body {
     font-size: 0.85rem !important;
   }
 }
+
+@media (max-width: 768px) {
+  /* Phase 3 Final Overrides */
+  .poc-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+    text-align: center !important;
+  }
+  .poc-hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .poc-headline {
+    font-size: 2.4rem !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+  }
+  .poc-hero-subtitle {
+    margin: 0 auto 2rem !important;
+    text-align: center !important;
+  }
+  .hero-cta {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  .hero-cta button {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .poc-stats-card {
+    padding: 2.5rem 1.5rem !important;
+    margin-top: 2rem !important;
+  }
+  
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+    padding: 0 0.5rem !important;
+  }
+  .resource-card {
+    padding: 1rem !important;
+  }
+  .blog-card-image img {
+    height: 120px !important;
+  }
+  .blog-card-title {
+    font-size: 0.9rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .blog-card-excerpt {
+    font-size: 0.75rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  .blog-card-date, .blog-card-link {
+    font-size: 0.7rem !important;
+  }
+  .btn-load-more {
+    width: 100% !important;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50px !important;
+    padding: 1rem 2rem !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2) !important;
+    transition: all 0.3s ease !important;
+  }
+  .btn-load-more:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3) !important;
+  }
+}

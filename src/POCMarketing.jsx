@@ -159,7 +159,7 @@ const WhyPOC = () => (
         </div>
         
         <div className="poc-content-wrapper">
-          <h2 className="poc-headline" style={{ fontSize: '3.5rem' }}>
+          <h2 className="poc-headline">
             Influence Clinical<br />
             Decisions at the Moment<br />
             of Need
@@ -205,7 +205,7 @@ const POCInventory = () => (
   <section className="poc-inventory-section">
     <div className="container">
       <div className="section-header text-center mb-5">
-        <h2 className="poc-headline text-center" style={{ fontSize: '3rem', margin: '0 auto 1.5rem', textAlign: 'center' }}>Where Your Message Appears</h2>
+        <h2 className="poc-headline text-center">Where Your Message Appears</h2>
         <p className="poc-hero-subtitle" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
           Our POC environments are built around original, expert-developed medical resources like clinical calculators, medical reference materials, and specialty articles.
         </p>
@@ -328,7 +328,7 @@ const POCUseCases = () => {
   return (
     <section className="poc-use-cases-section">
       <div className="container">
-        <h2 className="poc-headline text-center mb-5" style={{ fontSize: '3rem' }}>POC Use Cases</h2>
+        <h2 className="poc-headline text-center mb-5">POC Use Cases</h2>
         <div className="poc-use-cases-grid">
           {cases.map((c, i) => (
             <div key={i} className="poc-use-case-card">
@@ -355,7 +355,7 @@ const ProgrammaticAdvantage = () => (
     <div className="container">
       <div className="poc-programmatic-grid">
         <div className="poc-programmatic-content">
-          <h2 className="poc-headline" style={{ fontSize: '3rem', marginBottom: '3rem' }}>
+          <h2 className="poc-headline">
             Programmatic Efficiency<br />
             Meets Clinical Precision
           </h2>
@@ -412,7 +412,7 @@ const ProgrammaticAdvantage = () => (
 const CaseTeasers = () => (
   <section className="poc-impact-section">
     <div className="container">
-      <h2 className="poc-headline text-center" style={{ fontSize: '3rem', marginBottom: '4rem' }}>POC Impact in Action</h2>
+      <h2 className="poc-headline text-center mb-5">POC Impact in Action</h2>
       
       <div className="poc-impact-grid">
         <div className="impact-card">
