@@ -288,7 +288,12 @@ const PerformanceMetrics = () => (
             </li>
           </ul>
           <div className="performance-cta">
-            <button className="btn-primary">View Reporting Dashboard</button>
+            <button 
+              className="btn-primary"
+              onClick={() => window.location.href = '/get-started'}
+            >
+              View Reporting Dashboard
+            </button>
           </div>
         </div>
       </div>
@@ -311,7 +316,12 @@ const PricingPackages = () => (
           <span className="package-tier">Starter</span>
           <h4>Single Segment</h4>
           <p className="price-desc">Perfect for targeted niche launches or recruitment drives.</p>
-          <button className="btn-outline w-100">Request Pricing</button>
+          <button 
+            className="btn-outline w-100"
+            onClick={() => window.location.href = '/get-started'}
+          >
+            Request Pricing
+          </button>
         </div>
         
         <div className="pricing-card highlighted">
@@ -319,14 +329,24 @@ const PricingPackages = () => (
           <span className="package-tier">Series</span>
           <h4>Multi-Touch Flow</h4>
           <p className="price-desc">4-week educational series designed for sustained clinical awareness.</p>
-          <button className="btn-primary w-100">Request Pricing</button>
+          <button 
+            className="btn-primary w-100"
+            onClick={() => window.location.href = '/get-started'}
+          >
+            Request Pricing
+          </button>
         </div>
         
         <div className="pricing-card">
           <span className="package-tier">Enterprise</span>
           <h4>Always-On Mastery</h4>
           <p className="price-desc">Unlimited sends to entire specialty universe with dedicated account team.</p>
-          <button className="btn-outline w-100">Request Pricing</button>
+          <button 
+            className="btn-outline w-100"
+            onClick={() => window.location.href = '/get-started'}
+          >
+            Request Pricing
+          </button>
         </div>
       </div>
     </div>
@@ -384,21 +404,27 @@ const ComplianceTrust = () => {
             
             <div className="flow-steps">
               <div className="flow-step">
-                <div className="step-number">1</div>
+                <div className="step-number"><FileText size={14} /></div>
                 <div className="step-card">Creative Assets & ISI Receipt</div>
               </div>
               <div className="flow-step">
-                <div className="step-number">2</div>
+                <div className="step-number"><ShieldCheck size={14} /></div>
                 <div className="step-card">Internal QA & Format Check</div>
               </div>
               <div className="flow-step">
-                <div className="step-number">3</div>
+                <div className="step-number"><CheckCircle2 size={14} /></div>
                 <div className="step-card">Client/MLR Final Sign-off</div>
               </div>
               
               <div className="flow-final">
                 <div className="final-icon"><ChevronRight size={20} /></div>
-                <div className="final-bar">Secure Deployment</div>
+                <div 
+                  className="final-bar"
+                  onClick={() => window.location.href = '/get-started'}
+                  style={{ cursor: 'pointer' }}
+                >
+                  Secure Deployment
+                </div>
               </div>
             </div>
           </div>
@@ -409,6 +435,19 @@ const ComplianceTrust = () => {
 };
 
 const CaseExamples = () => {
+  const [activeIdx, setActiveIdx] = React.useState(0);
+  const scrollRef = React.useRef(null);
+
+  const handleScroll = (e) => {
+    if (window.innerWidth > 768) return;
+    const scrollLeft = e.target.scrollLeft;
+    const itemWidth = e.target.offsetWidth;
+    const newIdx = Math.round(scrollLeft / itemWidth);
+    if (newIdx !== activeIdx) {
+      setActiveIdx(newIdx);
+    }
+  };
+
   const cases = [
     { result: "2.4% CTR", obj: "Product Launch", desc: "Dedicated email to oncologists drove high-value clinical traffic." },
     { result: "48% Open Rate", obj: "Educational Series", desc: "Sponsored content series increased repeat engagement." },
@@ -419,18 +458,50 @@ const CaseExamples = () => {
     <section className="case-examples">
       <div className="container">
         <h2 className="section-title text-center">Real outcomes from <span>specialist campaigns</span></h2>
-        <div className="three-column-grid">
-          {cases.map((c, i) => (
-            <div key={i} className="case-card animate-blur-fade stagger-1">
-              <span className="case-result">{c.result}</span>
-              <span className="case-obj">{c.obj}</span>
-              <p>{c.desc}</p>
-              <button className="btn-text">Read Case Study <ArrowRight size={14} /></button>
-            </div>
-          ))}
+        <div className="case-grid-wrapper">
+          <div 
+            className="three-column-grid"
+            ref={scrollRef}
+            onScroll={handleScroll}
+          >
+            {cases.map((c, i) => (
+              <div key={i} className={`case-card animate-blur-fade stagger-${i+1}`}>
+                <span className="case-result">{c.result}</span>
+                <span className="case-obj">{c.obj}</span>
+                <p>{c.desc}</p>
+                <button 
+                  className="btn-text"
+                  onClick={() => window.location.href = '/get-started'}
+                >
+                  Read Case Study <ArrowRight size={14} />
+                </button>
+              </div>
+            ))}
+          </div>
+          <div className="carousel-dots about-dots">
+            {cases.map((_, i) => (
+              <div 
+                key={i} 
+                className={`dot ${activeIdx === i ? 'active' : ''}`}
+                onClick={() => {
+                  if (scrollRef.current) {
+                    scrollRef.current.scrollTo({
+                      left: i * scrollRef.current.offsetWidth,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+              />
+            ))}
+          </div>
         </div>
         <div className="text-center mt-4">
-          <button className="btn-primary">Request Full Case Studies</button>
+          <button 
+            className="btn-primary"
+            onClick={() => window.location.href = '/get-started'}
+          >
+            Request Full Case Studies
+          </button>
         </div>
       </div>
     </section>
@@ -441,41 +512,48 @@ const HowWeWork = () => (
   <section className="how-we-work-alt gray-bg">
     <div className="container">
       <h2 className="section-title text-center">Strategy, <span>execution, optimization</span></h2>
-      <div className="process-strip">
-        <div className="process-node-alt">
-          <div className="node-number">1</div>
-          <div className="node-content">
-            <strong>Plan</strong>
-            <p>Audience strategy</p>
+      <div className="process-strip-wrapper">
+        <div className="process-strip">
+          <div className="process-node-alt">
+            <div className="node-number">1</div>
+            <div className="node-content">
+              <strong>Plan</strong>
+              <p>Audience strategy</p>
+            </div>
           </div>
-        </div>
-        <div className="node-line"></div>
-        <div className="process-node-alt">
-          <div className="node-number">2</div>
-          <div className="node-content">
-            <strong>Create</strong>
-            <p>Compliant creative</p>
+          <div className="node-line"></div>
+          <div className="process-node-alt">
+            <div className="node-number">2</div>
+            <div className="node-content">
+              <strong>Create</strong>
+              <p>Compliant creative</p>
+            </div>
           </div>
-        </div>
-        <div className="node-line"></div>
-        <div className="process-node-alt">
-          <div className="node-number">3</div>
-          <div className="node-content">
-            <strong>Send</strong>
-            <p>Verified delivery</p>
+          <div className="node-line"></div>
+          <div className="process-node-alt">
+            <div className="node-number">3</div>
+            <div className="node-content">
+              <strong>Send</strong>
+              <p>Verified delivery</p>
+            </div>
           </div>
-        </div>
-        <div className="node-line"></div>
-        <div className="process-node-alt">
-          <div className="node-number">4</div>
-          <div className="node-content">
-            <strong>Measure</strong>
-            <p>Transparent reports</p>
+          <div className="node-line"></div>
+          <div className="process-node-alt">
+            <div className="node-number">4</div>
+            <div className="node-content">
+              <strong>Measure</strong>
+              <p>Transparent reports</p>
+            </div>
           </div>
         </div>
       </div>
       <div className="text-center mt-4">
-        <button className="btn-primary">Start a Campaign</button>
+        <button 
+          className="btn-primary"
+          onClick={() => window.location.href = '/get-started'}
+        >
+          Start a Campaign
+        </button>
       </div>
     </div>
   </section>

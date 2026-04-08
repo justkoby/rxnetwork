@@ -358,7 +358,7 @@ const ExpandedServices = () => {
   return (
     <section className="expanded-services">
       <div className="container">
-        <h2 className="section-title text-center animate-blur-fade">Beyond Monetization: <span>Full-Spectrum Digital Support</span></h2>
+        <h2 className="section-title text-center animate-blur-fade mobile-font-sm">Beyond Monetization: <span>Full-Spectrum Digital Support</span></h2>
         <div className="three-column-grid">
           {services.map((s, i) => (
             <div key={i} className={`service-card-alt animate-blur-fade stagger-${i+1}`}>
@@ -375,18 +375,25 @@ const ExpandedServices = () => {
 
 const WhoWeServe = () => {
   const audiences = [
-    "Medical publishers", "Pharmaceutical brands", "Medical device manufacturers",
-    "Hospital systems", "Biotech firms", "Healthcare-focused agencies", 
-    "Non-endemic brands targeting HCPs"
+    { label: "Medical publishers", icon: <LayoutGrid size={24} /> },
+    { label: "Pharma brands", icon: <Activity size={24} /> },
+    { label: "Device manufacturers", icon: <BriefcaseMedical size={24} /> },
+    { label: "Hospital systems", icon: <Globe size={24} /> },
+    { label: "Biotech firms", icon: <Cpu size={24} /> },
+    { label: "Healthcare agencies", icon: <Users size={24} /> },
+    { label: "Non-endemic brands", icon: <Zap size={24} /> }
   ];
 
   return (
     <section className="who-we-serve">
       <div className="container">
         <h2 className="section-title text-center animate-blur-fade">Built for Healthcare Organizations That Require <span>Precision and Scale</span></h2>
-        <div className="logo-wall animate-blur-fade stagger-1">
+        <div className="audience-icon-grid animate-blur-fade stagger-1">
           {audiences.map((a, i) => (
-            <div key={i} className="audience-tag">{a}</div>
+            <div key={i} className="audience-icon-card">
+              <div className="audience-icon">{a.icon}</div>
+              <span>{a.label}</span>
+            </div>
           ))}
         </div>
       </div>
@@ -400,7 +407,12 @@ const AboutContact = () => (
       <div className="contact-card animate-blur-fade">
         <h2 className="section-title white">Let’s Build Your <span>HCP-Only Advertising Strategy</span></h2>
         <p className="white opacity-8">Connect with our experts today to maximize your media impact.</p>
-        <button className="btn-primary white-pulse">Contact Us</button>
+        <button 
+          className="btn-primary white-pulse"
+          onClick={() => window.location.href = '/get-started'}
+        >
+          Contact Us
+        </button>
       </div>
     </div>
   </section>
