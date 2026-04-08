@@ -5292,3 +5292,38 @@ body {
     box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3) !important;
   }
 }
+
+@media (max-width: 768px) {
+  /* Phase 4 Spacing Refinements */
+  .who-we-serve, 
+  .expanded-services {
+    padding: 3rem 0 !important;
+  }
+
+  .three-column-grid {
+    gap: 1.5rem !important;
+  }
+
+  .service-card-alt {
+    padding: 1.5rem !important;
+    text-align: center !important;
+  }
+
+  .service-card-alt .icon-box {
+    margin: 0 auto 1.5rem !important;
+  }
+
+  .get-started-page {
+    padding: 6rem 0 3rem !important;
+  }
+
+  .get-started-grid {
+    margin-top: 2rem !important;
+    gap: 3rem !important;
+  }
+
+  .service-commitment {
+    margin-top: 2rem !important;
+    padding: 2rem !important;
+  }
+}
