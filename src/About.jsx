@@ -49,41 +49,75 @@ const AboutHero = () => (
   </section>
 );
 
-const WhoWeAre = () => (
-  <section className="who-we-are">
-    <div className="container">
-      <div className="section-grid">
-        <div className="section-content animate-blur-fade">
-          <h2 className="section-title">Experts in <span>Medical Media</span> and HCP-Only Advertising</h2>
-          <p className="section-body">
-            RxNetwork brings over 40 years of combined experience in medical media, healthcare advertising, and ad operations. We manage the digital ad inventory of leading medical and drug reference destinations—including Karger.com, Drugs.com, Radiopaedia, and Questex—and deliver HCP-only demand from Fortune 500 pharmaceutical companies and their agencies.
-          </p>
-          <p className="section-body">
-            Our focus is singular: health and medical advertising that reaches verified clinicians with precision, transparency, and measurable impact.
-          </p>
-        </div>
-        <div className="icon-grid animate-blur-fade stagger-2">
-          <div className="stat-icon-card">
-            <TrendingUp size={32} />
-            <h4>40+ years experience</h4>
+const WhoWeAre = () => {
+  const [activeIdx, setActiveIdx] = React.useState(0);
+  const scrollRef = React.useRef(null);
+
+  const handleScroll = (e) => {
+    if (window.innerWidth > 768) return;
+    const scrollLeft = e.target.scrollLeft;
+    const itemWidth = e.target.offsetWidth;
+    const newIdx = Math.round(scrollLeft / itemWidth);
+    if (newIdx !== activeIdx) {
+      setActiveIdx(newIdx);
+    }
+  };
+
+  const experiencePoints = [
+    { icon: <TrendingUp size={32} />, label: "40+ years experience" },
+    { icon: <Users size={32} />, label: "HCP-only demand" },
+    { icon: <ShieldCheck size={32} />, label: "Top medical publishers" },
+    { icon: <Target size={32} />, label: "Deterministic targeting" }
+  ];
+
+  return (
+    <section className="who-we-are">
+      <div className="container">
+        <div className="section-grid">
+          <div className="section-content animate-blur-fade">
+            <h2 className="section-title">Experts in <span>Medical Media</span> and HCP-Only Advertising</h2>
+            <p className="section-body">
+              RxNetwork brings over 40 years of combined experience in medical media, healthcare advertising, and ad operations. We manage the digital ad inventory of leading medical and drug reference destinations—including Karger.com, Drugs.com, Radiopaedia, and Questex—and deliver HCP-only demand from Fortune 500 pharmaceutical companies and their agencies.
+            </p>
+            <p className="section-body">
+              Our focus is singular: health and medical advertising that reaches verified clinicians with precision, transparency, and measurable impact.
+            </p>
           </div>
-          <div className="stat-icon-card">
-            <Users size={32} />
-            <h4>HCP-only demand</h4>
-          </div>
-          <div className="stat-icon-card">
-            <ShieldCheck size={32} />
-            <h4>Top medical publishers</h4>
-          </div>
-          <div className="stat-icon-card">
-            <Target size={32} />
-            <h4>Deterministic targeting</h4>
+          <div className="icon-grid-wrapper animate-blur-fade stagger-2">
+            <div 
+              className="icon-grid" 
+              ref={scrollRef}
+              onScroll={handleScroll}
+            >
+              {experiencePoints.map((point, index) => (
+                <div key={index} className="stat-icon-card">
+                  {point.icon}
+                  <h4>{point.label}</h4>
+                </div>
+              ))}
+            </div>
+            <div className="carousel-dots about-dots">
+              {experiencePoints.map((_, i) => (
+                <div 
+                  key={i} 
+                  className={`dot ${activeIdx === i ? 'active' : ''}`}
+                  onClick={() => {
+                    if (scrollRef.current) {
+                      scrollRef.current.scrollTo({
+                        left: i * scrollRef.current.offsetWidth,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const OurMission = () => (
   <section className="our-mission">
@@ -117,6 +151,19 @@ const OurMission = () => (
 );
 
 const WhatWeDo = () => {
+  const [activeIdx, setActiveIdx] = React.useState(0);
+  const scrollRef = React.useRef(null);
+
+  const handleScroll = (e) => {
+    if (window.innerWidth > 768) return;
+    const scrollLeft = e.target.scrollLeft;
+    const itemWidth = e.target.offsetWidth;
+    const newIdx = Math.round(scrollLeft / itemWidth);
+    if (newIdx !== activeIdx) {
+      setActiveIdx(newIdx);
+    }
+  };
+
   const services = [
     {
       title: "Publisher Monetization",
@@ -142,14 +189,36 @@ const WhatWeDo = () => {
           <h2 className="section-title animate-blur-fade">A Full-Stack <span>Healthcare Media Platform</span></h2>
           <p className="section-subtitle animate-blur-fade stagger-1">Connecting premium medical publishers with high-quality, HCP-verified demand.</p>
         </div>
-        <div className="three-column-grid">
-          {services.map((s, i) => (
-            <div key={i} className={`service-card animate-blur-fade stagger-${i+1}`}>
-              <div className="service-icon">{s.icon}</div>
-              <h3>{s.title}</h3>
-              <p>{s.desc}</p>
-            </div>
-          ))}
+        <div className="three-column-grid-wrapper">
+          <div 
+            className="three-column-grid"
+            ref={scrollRef}
+            onScroll={handleScroll}
+          >
+            {services.map((s, i) => (
+              <div key={i} className={`service-card animate-blur-fade stagger-${i+1}`}>
+                <div className="service-icon">{s.icon}</div>
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="carousel-dots about-dots">
+            {services.map((_, i) => (
+              <div 
+                key={i} 
+                className={`dot ${activeIdx === i ? 'active' : ''}`}
+                onClick={() => {
+                  if (scrollRef.current) {
+                    scrollRef.current.scrollTo({
+                      left: i * scrollRef.current.offsetWidth,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

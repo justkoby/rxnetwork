@@ -98,6 +98,17 @@ const Features = () => {
     }
   ];
 
+  const [activeIdx, setActiveIdx] = React.useState(0);
+  const scrollRef = React.useRef(null);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, offsetWidth } = scrollRef.current;
+      const newIdx = Math.round(scrollLeft / offsetWidth);
+      if (newIdx !== activeIdx) setActiveIdx(newIdx);
+    }
+  };
+
   return (
     <section className="features">
       <img src="/bg-shape.png" className="bg-shape" alt="" />
@@ -116,7 +127,11 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="features-grid">
+        <div 
+          className="features-grid" 
+          ref={scrollRef} 
+          onScroll={handleScroll}
+        >
           {features.map((feature, index) => (
             <div 
               key={index} 
@@ -130,12 +145,40 @@ const Features = () => {
             </div>
           ))}
         </div>
+
+        <div className="features-dots">
+          {features.map((_, i) => (
+            <div 
+              key={i} 
+              className={`dot ${activeIdx === i ? 'active' : ''}`}
+              onClick={() => {
+                if (scrollRef.current) {
+                  scrollRef.current.scrollTo({
+                    left: i * scrollRef.current.offsetWidth,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
 const AudienceSection = () => {
+  const [activeIdx, setActiveIdx] = React.useState(0);
+  const scrollRef = React.useRef(null);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, offsetWidth } = scrollRef.current;
+      const newIdx = Math.round(scrollLeft / offsetWidth);
+      if (newIdx !== activeIdx) setActiveIdx(newIdx);
+    }
+  };
+
   const stats = [
     {
       value: "24M",
@@ -174,7 +217,11 @@ const AudienceSection = () => {
           </p>
         </div>
 
-        <div className="audience-grid">
+        <div 
+          className="audience-grid" 
+          ref={scrollRef} 
+          onScroll={handleScroll}
+        >
           {stats.map((stat, index) => (
             <div 
               key={index} 
@@ -186,6 +233,23 @@ const AudienceSection = () => {
               <h3 className="audience-value">{stat.value}</h3>
               <p className="audience-label">{stat.label}</p>
             </div>
+          ))}
+        </div>
+
+        <div className="audience-dots">
+          {stats.map((_, i) => (
+            <div 
+              key={i} 
+              className={`dot ${activeIdx === i ? 'active' : ''}`}
+              onClick={() => {
+                if (scrollRef.current) {
+                  scrollRef.current.scrollTo({
+                    left: i * scrollRef.current.offsetWidth,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            />
           ))}
         </div>
       </div>
@@ -389,6 +453,17 @@ const PerformanceSection = () => {
 
 const ProcessSection = () => {
   const [activeStep, setActiveStep] = React.useState(0);
+  const scrollRef = React.useRef(null);
+
+  const handleScroll = (e) => {
+    if (window.innerWidth > 768) return;
+    const scrollLeft = e.target.scrollLeft;
+    const itemWidth = e.target.offsetWidth;
+    const newIdx = Math.round(scrollLeft / itemWidth);
+    if (newIdx !== activeStep) {
+      setActiveStep(newIdx);
+    }
+  };
 
   const steps = [
     {
@@ -442,12 +517,21 @@ const ProcessSection = () => {
             </svg>
           </div>
 
-          <div className="process-nodes">
+          <div className="process-nodes" ref={scrollRef} onScroll={handleScroll}>
             {steps.map((step, index) => (
               <div
                 key={step.id}
                 className={`process-node node-${step.id} ${activeStep === index ? 'active' : ''}`}
-                onClick={() => setActiveStep(index)}
+                onClick={() => {
+                  if (window.innerWidth > 768) {
+                    setActiveStep(index);
+                  } else {
+                    scrollRef.current.scrollTo({
+                      left: index * scrollRef.current.offsetWidth,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
               >
                 <div className="node-orb">
                   {step.icon}
@@ -459,6 +543,23 @@ const ProcessSection = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="process-dots">
+          {steps.map((_, i) => (
+            <div 
+              key={i} 
+              className={`dot ${activeStep === i ? 'active' : ''}`}
+              onClick={() => {
+                if (scrollRef.current) {
+                  scrollRef.current.scrollTo({
+                    left: i * scrollRef.current.offsetWidth,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            />
+          ))}
         </div>
 
         <div className="process-details-container animate-blur-fade">
@@ -521,35 +622,69 @@ const ContactSection = () => (
   </section>
 );
 
-const BlogPreview = () => (
-  <section className="blog-preview gray-bg animate-blur-fade">
-    <div className="container">
-      <header className="blog-preview-header align-center">
-        <div className="section-content">
-          <span className="section-tag">Clinical Insights</span>
-          <h2 className="section-title">Explore our latest <span>Studies & Analysis</span></h2>
+const BlogPreview = () => {
+  const [activeIdx, setActiveIdx] = React.useState(0);
+  const scrollRef = React.useRef(null);
+
+  const handleScroll = (e) => {
+    if (window.innerWidth > 768) return;
+    const scrollLeft = e.target.scrollLeft;
+    const itemWidth = e.target.offsetWidth;
+    const newIdx = Math.round(scrollLeft / itemWidth);
+    if (newIdx !== activeIdx) {
+      setActiveIdx(newIdx);
+    }
+  };
+
+  const previewPosts = blogPosts.slice(0, 3);
+
+  return (
+    <section className="blog-preview gray-bg animate-blur-fade">
+      <div className="container">
+        <header className="blog-preview-header align-center">
+          <div className="section-content">
+            <span className="section-tag">Clinical Insights</span>
+            <h2 className="section-title">Explore our latest <span>Studies & Analysis</span></h2>
+          </div>
+          <Link to="/blog" className="btn-secondary">View all Insights <ArrowRight size={18} /></Link>
+        </header>
+        
+        <div className="blog-grid-preview" ref={scrollRef} onScroll={handleScroll}>
+          {previewPosts.map((post) => (
+            <Link to={`/blog/${post.id}`} key={post.id} className="blog-card">
+              <div className="blog-card-image">
+                <img src={post.image} alt={post.title} />
+                <span className="blog-card-tag">{post.category}</span>
+              </div>
+              <div className="blog-card-content">
+                <h3 className="blog-card-title">{post.title}</h3>
+                <p className="blog-card-excerpt">{post.excerpt}</p>
+                <span className="blog-card-link">Read full post →</span>
+              </div>
+            </Link>
+          ))}
         </div>
-        <Link to="/blog" className="btn-secondary">View all Insights <ArrowRight size={18} /></Link>
-      </header>
-      
-      <div className="blog-grid-preview">
-        {blogPosts.slice(0, 3).map((post) => (
-          <Link to={`/blog/${post.id}`} key={post.id} className="blog-card">
-            <div className="blog-card-image">
-              <img src={post.image} alt={post.title} />
-              <span className="blog-card-tag">{post.category}</span>
-            </div>
-            <div className="blog-card-content">
-              <h3 className="blog-card-title">{post.title}</h3>
-              <p className="blog-card-excerpt">{post.excerpt}</p>
-              <span className="blog-card-link">Read full post →</span>
-            </div>
-          </Link>
-        ))}
+
+        <div className="blog-dots">
+          {previewPosts.map((_, i) => (
+            <div 
+              key={i} 
+              className={`dot ${activeIdx === i ? 'active' : ''}`}
+              onClick={() => {
+                if (scrollRef.current) {
+                  scrollRef.current.scrollTo({
+                    left: i * scrollRef.current.offsetWidth,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            />
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Home = () => {
   return (
