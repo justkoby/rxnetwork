@@ -114,7 +114,6 @@ const AudienceVerification = () => {
             <p className="section-body">
               Profession-based verification and strict list hygiene ensure advertisers reach licensed, practicing clinicians—not lookalikes or consumers.
             </p>
-            <button className="btn-outline">View Segmentation Options</button>
           </div>
           <div className="persona-tiles animate-blur-fade stagger-2">
             {personas.map((p, i) => (
@@ -434,79 +433,7 @@ const ComplianceTrust = () => {
   );
 };
 
-const CaseExamples = () => {
-  const [activeIdx, setActiveIdx] = React.useState(0);
-  const scrollRef = React.useRef(null);
 
-  const handleScroll = (e) => {
-    if (window.innerWidth > 768) return;
-    const scrollLeft = e.target.scrollLeft;
-    const itemWidth = e.target.offsetWidth;
-    const newIdx = Math.round(scrollLeft / itemWidth);
-    if (newIdx !== activeIdx) {
-      setActiveIdx(newIdx);
-    }
-  };
-
-  const cases = [
-    { result: "2.4% CTR", obj: "Product Launch", desc: "Dedicated email to oncologists drove high-value clinical traffic." },
-    { result: "48% Open Rate", obj: "Educational Series", desc: "Sponsored content series increased repeat engagement." },
-    { result: "120+ Leads", obj: "Recruitment", desc: "Targeted sends to cardiologists produced qualified applicants." }
-  ];
-
-  return (
-    <section className="case-examples">
-      <div className="container">
-        <h2 className="section-title text-center">Real outcomes from <span>specialist campaigns</span></h2>
-        <div className="case-grid-wrapper">
-          <div 
-            className="three-column-grid"
-            ref={scrollRef}
-            onScroll={handleScroll}
-          >
-            {cases.map((c, i) => (
-              <div key={i} className={`case-card animate-blur-fade stagger-${i+1}`}>
-                <span className="case-result">{c.result}</span>
-                <span className="case-obj">{c.obj}</span>
-                <p>{c.desc}</p>
-                <button 
-                  className="btn-text"
-                  onClick={() => window.location.href = '/get-started'}
-                >
-                  Read Case Study <ArrowRight size={14} />
-                </button>
-              </div>
-            ))}
-          </div>
-          <div className="carousel-dots about-dots">
-            {cases.map((_, i) => (
-              <div 
-                key={i} 
-                className={`dot ${activeIdx === i ? 'active' : ''}`}
-                onClick={() => {
-                  if (scrollRef.current) {
-                    scrollRef.current.scrollTo({
-                      left: i * scrollRef.current.offsetWidth,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
-              />
-            ))}
-          </div>
-        </div>
-        <div className="text-center mt-4">
-          <button 
-            className="btn-primary"
-            onClick={() => window.location.href = '/get-started'}
-          >
-            Request Full Case Studies
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const HowWeWork = () => (
   <section className="how-we-work-alt gray-bg">
@@ -582,7 +509,6 @@ const EmailMarketing = () => {
       <PerformanceMetrics />
       <PricingPackages />
       <ComplianceTrust />
-      <CaseExamples />
       <HowWeWork />
       <EmailContact />
     </div>

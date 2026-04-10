@@ -75,13 +75,14 @@ const WhoWeAre = () => {
       <div className="container">
         <div className="section-grid">
           <div className="section-content animate-blur-fade">
-            <h2 className="section-title">Experts in <span>Medical Media</span> and HCP-Only Advertising</h2>
-            <p className="section-body">
+            <h2 className="section-title" style={{ maxWidth: '100%', overflowWrap: 'break-word' }}>Who we are:<br/>Experts in <span>Medical Media</span> and HCP-Only Advertising</h2>
+            <p className="section-body" style={{ maxWidth: '100%', overflowWrap: 'break-word' }}>
               RxNetwork brings over 40 years of combined experience in medical media, healthcare advertising, and ad operations. We manage the digital ad inventory of leading medical and drug reference destinations—including Karger.com, Drugs.com, Radiopaedia, and Questex—and deliver HCP-only demand from Fortune 500 pharmaceutical companies and their agencies.
             </p>
-            <p className="section-body">
+            <p className="section-body" style={{ maxWidth: '100%', overflowWrap: 'break-word' }}>
               Our focus is singular: health and medical advertising that reaches verified clinicians with precision, transparency, and measurable impact.
             </p>
+
           </div>
           <div className="icon-grid-wrapper animate-blur-fade stagger-2">
             <div 
@@ -122,7 +123,7 @@ const WhoWeAre = () => {
 const OurMission = () => (
   <section className="our-mission">
     <div className="container text-center">
-      <h2 className="section-title animate-blur-fade">Enabling Healthcare Brands to <span>Reach the Right Clinicians.</span></h2>
+      <h2 className="section-title animate-blur-fade">Our Mission: Enabling Healthcare Brands to <span>Reach the Right Clinicians.</span></h2>
       <p className="section-body text-center animate-blur-fade stagger-1">
         Our mission is to help pharmaceuticals, medical device firms, and hospitals navigate the complex digital landscape with surgical precision.
       </p>
@@ -186,8 +187,8 @@ const WhatWeDo = () => {
     <section className="what-we-do">
       <div className="container">
         <div className="section-header text-center">
-          <h2 className="section-title animate-blur-fade">A Full-Stack <span>Healthcare Media Platform</span></h2>
-          <p className="section-subtitle animate-blur-fade stagger-1">Connecting premium medical publishers with high-quality, HCP-verified demand.</p>
+          <h2 className="section-title animate-blur-fade">What we've built: A Full-Stack <span>Healthcare Media Platform</span></h2>
+          <p className="section-subtitle animate-blur-fade stagger-1">Connecting HCP verified supply with targeted demand from leading healthcare buyers.</p>
         </div>
         <div className="three-column-grid-wrapper">
           <div 

@@ -40,9 +40,9 @@ const Navbar = () => {
 
         <ul className={`nav-links ${isMenuOpen ? 'mobile-open' : ''}`}>
           <li><NavLink to="/about" onClick={() => setIsMenuOpen(false)}>About Us</NavLink></li>
-          <li><NavLink to="/email-marketing" onClick={() => setIsMenuOpen(false)}>Email Marketing</NavLink></li>
+          <li><NavLink to="/email-marketing" onClick={() => setIsMenuOpen(false)}>HCP Email Marketing</NavLink></li>
           <li><NavLink to="/poc-marketing" onClick={() => setIsMenuOpen(false)}>POC Marketing</NavLink></li>
-          <li><NavLink to="/blog" onClick={() => setIsMenuOpen(false)}>Insights</NavLink></li>
+          <li><NavLink to="/blog" onClick={() => setIsMenuOpen(false)}>Clinical Content</NavLink></li>
           <li className="mobile-only-cta">
             <Link to="/get-started" onClick={() => setIsMenuOpen(false)}>
               <button className="btn-primary">Get Started Now</button>
@@ -67,7 +67,7 @@ const Footer = () => (
         <div className="footer-brand">
           <img src="/RxN-Logo_white.png" alt="RxNetwork Logo" className="footer-logo-img" />
           <p className="footer-description">
-            A premium healthcare media platform delivering targeted access to 
+            A healthcare media platform delivering targeted access to 
             physicians and clinicians through data-driven advertising and 
             trusted medical content.
           </p>
@@ -77,9 +77,9 @@ const Footer = () => (
           <h4 className="footer-nav-title">Pages</h4>
           <ul className="footer-links">
             <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/email-marketing">Email Marketing</Link></li>
+            <li><Link to="/email-marketing">HCP Email Marketing</Link></li>
             <li><Link to="/poc-marketing">POC Marketing</Link></li>
-            <li><Link to="/blog">Insights</Link></li>
+            <li><Link to="/blog">Clinical Content</Link></li>
             <li><Link to="/get-started">Contact us</Link></li>
           </ul>
         </div>
@@ -87,8 +87,8 @@ const Footer = () => (
         <div className="footer-nav-group">
           <h4 className="footer-nav-title">Social</h4>
           <ul className="footer-links">
-            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://youtube.com" target="_blank" rel="noopener noreferrer">Youtube</a></li>
+            <li><a href="https://tinyurl.com/yc5rr3nr" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://www.youtube.com/@GlobalRPh-com" target="_blank" rel="noopener noreferrer">Youtube</a></li>
           </ul>
         </div>
       </div>

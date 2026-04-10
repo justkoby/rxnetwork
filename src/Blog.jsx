@@ -26,10 +26,9 @@ const Blog = () => {
       <div className="container">
         <header className="blog-header">
           <span className="section-tag">Clinical Knowledge Hub</span>
-          <h1 className="section-title">Insights, <span>Research</span> & Clinical Tools</h1>
+          <h1 className="section-title">Insights, <span>Research</span> & Clinical Content</h1>
           <p className="section-body">
-            Access our comprehensive library of peer-reviewed research, 
-            oncology calculators, and clinical guidelines.
+            RxNetwork and its affiliates have over 25 years of experience producing peer-reviewed clinical content, physician reference materials, clinical calculators, and more. Access our comprehensive collection of content produced for HCPs, physicians and allied healthcare professionals:
           </p>
         </header>
 

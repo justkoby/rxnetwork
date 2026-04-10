@@ -14,6 +14,8 @@ import {
   MousePointer2,
   Settings,
   FileText,
+  Mail,
+  Megaphone,
   ArrowRight
 } from 'lucide-react';
 
@@ -29,9 +31,6 @@ const Hero = () => {
         <div className="hero-grid">
           {/* Left Side: Content */}
           <div className="hero-content">
-            <span className="badge animate-blur-fade stagger-1">
-              Premium Healthcare Media
-            </span>
             <h1 className="hero-title animate-blur-fade stagger-2">
               Specialists in 
               <span>Healthcare Media</span>
@@ -47,7 +46,6 @@ const Hero = () => {
             </p>
             <div className="hero-cta animate-blur-fade stagger-4">
               <button className="btn-primary">Request a Media Kit</button>
-              <button className="btn-outline">See Audience Insights</button>
             </div>
           </div>
 
@@ -62,15 +60,6 @@ const Hero = () => {
               className="doctor-image"
             />
             
-            <div className="stat-card card-1 animate-blur-fade stagger-3">
-              <span className="stat-value">24m+</span>
-              <span className="stat-label">Page Views</span>
-            </div>
-
-            <div className="stat-card card-2 animate-blur-fade stagger-4">
-              <span className="stat-value">8m+</span>
-              <span className="stat-label">Uniques Per Month</span>
-            </div>
           </div>
         </div>
       </div>
@@ -167,6 +156,41 @@ const Features = () => {
   );
 };
 
+const CountUp = ({ end, decimals = 0, suffix = "", duration = 2000 }) => {
+  const [count, setCount] = React.useState(0);
+  const elementRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          let startTimestamp = null;
+          const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            setCount(easeProgress * end);
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            } else {
+              setCount(end);
+            }
+          };
+          window.requestAnimationFrame(step);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+    return () => observer.disconnect();
+  }, [end, duration]);
+
+  return <span ref={elementRef}>{count.toFixed(decimals)}{suffix}</span>;
+};
+
 const AudienceSection = () => {
   const [activeIdx, setActiveIdx] = React.useState(0);
   const scrollRef = React.useRef(null);
@@ -181,19 +205,19 @@ const AudienceSection = () => {
 
   const stats = [
     {
-      value: "24M",
-      label: "page views / month.",
-      icon: <Files size={40} />
+      value: <CountUp end={166} suffix="M" />,
+      label: "pageviews / month.",
+      icon: <BarChart3 size={40} />
     },
     {
-      value: "8M",
-      label: "unique visitors / month.",
-      icon: <Users size={40} />
+      value: <><CountUp end={725} /> million</>,
+      label: "avails / month.",
+      icon: <Megaphone size={40} />
     },
     {
-      value: "500k+",
-      label: "registered healthcare professionals using clinical tools.",
-      icon: <Stethoscope size={40} />
+      value: <><CountUp end={1.1} decimals={1} /> million</>,
+      label: "physician emails.",
+      icon: <Mail size={40} />
     }
   ];
 
@@ -208,8 +232,12 @@ const AudienceSection = () => {
             Audience <span>Composition and Scale</span>
           </h2>
           <p className="audience-description">
-            RxNetwork combines deep clinical expertise with modern ad-tech to deliver targeted, 
-            brand-safe campaigns across a portfolio of medical properties.
+            Our network reaches physicians, allied healthcare professionals, healthcare executives, 
+            medical specialists, and patient populations across specialty verticals.
+          </p>
+          <p className="audience-body">
+            Our content, clinical calculators, reference tools, and multimedia resources 
+            serve hundreds of thousands of HCPs domestically and worldwide.
           </p>
           <p className="audience-body">
             We <strong>focus only on medical content</strong>, no sports, politics, or finance, 
@@ -305,7 +333,7 @@ const SolutionsSection = () => {
   ];
 
   return (
-    <section className="solutions" ref={sectionRef} style={{ height: `${solutions.length * 100}vh` }}>
+    <section className="solutions" ref={sectionRef}>
       <div className="container">
         <div className="solutions-header animate-blur-fade">
           <h2 className="solutions-title">
@@ -315,23 +343,25 @@ const SolutionsSection = () => {
 
         <div className="solutions-stack">
           {solutions.map((solution, index) => {
-            const startScroll = index * window.innerHeight;
-            const nextCardStart = (index + 1) * window.innerHeight;
-            const progressToNext = scrollProgress - nextCardStart;
-            const opacity = progressToNext > 0 ? Math.max(0, 1 - progressToNext / 300) : 1;
-            const translateY = progressToNext > 0 ? - (progressToNext / 2) : 0;
-
+            const cardProgress = Math.max(0, scrollProgress - (index * window.innerHeight));
+            const progressToNext = Math.min(1, Math.max(0, (scrollProgress - (index * window.innerHeight)) / window.innerHeight));
+            
+            // This card starts scaling down as the next one arrives
+            const scale = 1 - (progressToNext * 0.05);
+            const opacity = 1 - (progressToNext * 0.5); // Subtle dimming instead of disappearing
+            const translateY = - (progressToNext * 50); // Slight upward float
+            
             return (
               <div 
                 key={index} 
                 className="solution-card-wrapper"
                 style={{ 
-                  top: '120px',
-                  opacity,
-                  transform: `translateY(${translateY}px) scale(${opacity * 0.05 + 0.95})`,
+                  top: `${110 + (index * 5)}px`, // Staggered sticky top for deck effect
+                  opacity: 1, // Keep visible for stacking
+                  transform: `translateY(${translateY}px) scale(${scale})`,
                   zIndex: 10 + index,
                   position: 'sticky',
-                  visibility: opacity <= 0 ? 'hidden' : 'visible'
+                  filter: `brightness(${1 - (progressToNext * 0.4)})`
                 }}
               >
                 <div 
@@ -359,71 +389,28 @@ const SolutionsSection = () => {
   );
 };
 
-const TargetingSection = () => {
-  const data = [
-    { method: "NPI", reads: "Individual clinicians", best: "Detail-targeted outreach" },
-    { method: "ME", reads: "Medical entities (hospitals, clinics)", best: "System or formulary messaging" },
-    { method: "DGID", reads: "Disease/diagnosis groups", best: "Condition-specific campaigns" },
-    { method: "Contextual", reads: "Topic-relevant pages", best: "Awareness and education" },
-  ];
 
-  return (
-    <section className="targeting">
-      <div className="container">
-        <div className="targeting-header animate-blur-fade">
-          <h2 className="targeting-title">
-            Targeting at a <span>Glance</span>
-          </h2>
-          <p className="targeting-subtitle">
-            With over 40 years of combined experience in medical media and digital advertising, we pair clinical credibility with modern programmatic delivery to reach the right clinicians at the right moment.
-          </p>
-        </div>
-
-        <div className="targeting-table-container animate-blur-fade">
-          <table className="targeting-table">
-            <thead>
-              <tr>
-                <th>Method</th>
-                <th>What it reads</th>
-                <th>Best for</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((item, index) => (
-                <tr key={index} className={index % 2 === 1 ? 'row-alt' : ''}>
-                  <td className="col-method">{item.method}</td>
-                  <td>{item.reads}</td>
-                  <td className="col-best">{item.best}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const PerformanceSection = () => {
   const caseStudies = [
     {
-      tag: "ONCOLOGY BRAND",
+      tag: "Pharma launch",
       title: "Increasing Therapy Compliance",
-      desc: "Campaign focused on patient education portals for Stage IV lung cancer treatments.",
+      desc: "Programmatic specialty targeting increased HCP engagement and drove measurable uplift in site visits.",
       stat: "+22%",
       statDesc: "Prescription Adherence"
     },
     {
-      tag: "RARE DISEASE",
+      tag: "Device awareness",
       title: "Shortening Time to Diagnosis",
-      desc: "Connecting patients searching for orphan symptoms with specialty care clinics.",
+      desc: "Contextual placements across core procedure content improved clinician recall and demo requests.",
       stat: "15:1",
       statDesc: "Verified ROI"
     },
     {
-      tag: "CONSUMER HEALTH",
-      title: "Mass Market Launch",
-      desc: "Omni-channel rollout across digital health platforms for a new probiotic brand.",
+      tag: "Hospital",
+      title: "Health system recruitment",
+      desc: "Email and content programs delivered qualified clinician leads for system hiring.",
       stat: "4M+",
       statDesc: "Qualified Leads"
     }
@@ -432,17 +419,15 @@ const PerformanceSection = () => {
   return (
     <section className="performance">
       <div className="container">
-        <h2 className="performance-title animate-blur-fade">Proven Performance</h2>
+        <h2 className="performance-title animate-blur-fade" style={{ fontSize: '2.5rem', maxWidth: '1000px', margin: '0 auto 5rem' }}>
+          Real campaigns that demonstrate clinical reach, programmatic efficiency, and measurable impact.
+        </h2>
         <div className="performance-grid">
           {caseStudies.map((study, index) => (
             <div key={index} className="performance-card animate-blur-fade" style={{ animationDelay: `${index * 0.1}s` }}>
               <span className="performance-tag">{study.tag}</span>
               <h3 className="performance-card-title">{study.title}</h3>
               <p className="performance-card-desc">{study.desc}</p>
-              <div className="performance-stat-container">
-                <span className="performance-stat">{study.stat}</span>
-                <p className="performance-stat-desc">{study.statDesc}</p>
-              </div>
             </div>
           ))}
         </div>
@@ -598,18 +583,8 @@ const ContactSection = () => (
           <h2 className="section-title">Talk with <span>our team</span></h2>
           <p className="section-body">
             Ready to reach clinicians with clinical relevance and programmatic efficiency? 
-            Contact our New York or Connecticut offices, or submit an inquiry and we'll 
-            respond with a tailored media kit and audience plan.
+            Contact us and we'll respond with a tailored media kit and audience plan.
           </p>
-          
-          <div className="office-details">
-            <div className="office">
-              <strong>New York</strong> — <a href="tel:914-208-6464">914-208-6464</a>
-            </div>
-            <div className="office">
-              <strong>Connecticut</strong> — <a href="tel:203-703-9018">203-703-9018</a>
-            </div>
-          </div>
           
           <button className="btn-primary contact-btn">Inquire / Contact Sales</button>
         </div>
@@ -643,8 +618,8 @@ const BlogPreview = () => {
       <div className="container">
         <header className="blog-preview-header align-center">
           <div className="section-content">
-            <span className="section-tag">Clinical Insights</span>
-            <h2 className="section-title">Explore our latest <span>Studies & Analysis</span></h2>
+            <span className="section-tag">Content Production and Medical Publishing</span>
+            <h2 className="section-title">Explore our latest <span>clinical content</span></h2>
           </div>
           <Link to="/blog" className="btn-secondary">View all Insights <ArrowRight size={18} /></Link>
         </header>
@@ -693,7 +668,6 @@ const Home = () => {
       <Features />
       <AudienceSection />
       <SolutionsSection />
-      <TargetingSection />
       <PerformanceSection />
       <ProcessSection />
       <BlogPreview />
