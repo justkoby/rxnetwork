@@ -211,9 +211,6 @@ const AudienceSection = () => {
 
   return (
     <section className="audience">
-      <div className="bg-blob bg-blob-3" style={{ top: '10%', left: '10%' }} />
-      <div className="bg-blob bg-blob-4" style={{ bottom: '10%', right: '10%' }} />
-      
       <div className="container">
         <div className="audience-header animate-blur-fade">
           <h2 className="audience-title">
