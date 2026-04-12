@@ -23,9 +23,16 @@ body {
   color: var(--text-main);
   background-color: var(--white);
   overflow-x: clip !important;
-  width: 100%;
+  width: 100% !important;
   position: relative;
   word-break: break-word; /* Failsafe for long words */
+}
+
+.app, .sections-container {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 
@@ -204,12 +211,14 @@ html {
   position: relative;
   overflow: hidden;
   padding: 8rem 0 4rem; 
-  background-color: #000c2a; /* RxN Deep Blue */
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  left: 0;
-  right: 0;
+  background-color: #000c2a !important; /* RxN Deep Blue - Force for contrast */
+  width: 100vw !important;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  z-index: 1;
 }
 
 .hero-video-bg {
@@ -243,7 +252,7 @@ html {
   font-size: 4.5rem;
   line-height: 1.1;
   font-weight: 800;
-  color: var(--primary);
+  color: #ffffff !important;
   margin-bottom: 2rem;
 }
 
@@ -259,7 +268,7 @@ html {
 .hero-description {
   font-size: 1.5rem;
   line-height: 1.6;
-  color: var(--primary);
+  color: #e0e7ff !important; /* Very Light Blue */
   font-weight: 600;
   margin-bottom: 2rem;
   max-width: 800px;
@@ -267,7 +276,7 @@ html {
 
 .hero-body {
   font-size: 1.1rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.7;
   margin-bottom: 3rem;
   max-width: 700px;
