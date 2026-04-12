@@ -22,44 +22,32 @@ import {
 const Hero = () => {
   return (
     <section className="hero">
-      <div className="bg-blob bg-blob-1" />
-      <div className="bg-blob bg-blob-2" />
-      <div className="bg-blob bg-blob-3" />
-      <div className="bg-blob bg-blob-4" />
+      <video 
+        src="/bg-vid.webm" 
+        autoPlay 
+        muted 
+        loop 
+        playsInline 
+        className="hero-video-bg"
+      />
       
       <div className="container">
-        <div className="hero-grid">
-          {/* Left Side: Content */}
-          <div className="hero-content">
-            <h1 className="hero-title animate-blur-fade stagger-2">
-              Specialists in 
-              <span>Healthcare Media</span>
-            </h1>
-            <p className="hero-description animate-blur-fade stagger-3">
-              Reach physicians, allied clinicians, and healthcare leaders 
-              with programmatic precision and premium medical content.
-            </p>
-            <p className="hero-body animate-blur-fade stagger-4">
-              RxNetwork combines deep clinical expertise with modern ad-tech to 
-              deliver targeted, brand-safe campaigns across a portfolio of medical 
-              properties. We focus only on medical content, no sports, politics, or finance.
-            </p>
-            <div className="hero-cta animate-blur-fade stagger-4">
-              <button className="btn-primary">Request a Media Kit</button>
-            </div>
-          </div>
-
-          {/* Right Side: Image and Stats */}
-          <div className="hero-image-container animate-slide-in">
-            <video 
-              src="/opening-vid.webm" 
-              autoPlay 
-              muted 
-              loop 
-              playsInline 
-              className="doctor-image"
-            />
-            
+        <div className="hero-content centered">
+          <h1 className="hero-title animate-blur-fade stagger-2">
+            Specialists in 
+            <span>Healthcare Media</span>
+          </h1>
+          <p className="hero-description animate-blur-fade stagger-3">
+            Reach physicians, allied clinicians, and healthcare leaders 
+            with programmatic precision and premium medical content.
+          </p>
+          <p className="hero-body animate-blur-fade stagger-4">
+            RxNetwork combines deep clinical expertise with modern ad-tech to 
+            deliver targeted, brand-safe campaigns across a portfolio of medical 
+            properties. We focus only on medical content, no sports, politics, or finance.
+          </p>
+          <div className="hero-cta animate-blur-fade stagger-4">
+            <button className="btn-primary">Request a Media Kit</button>
           </div>
         </div>
       </div>
