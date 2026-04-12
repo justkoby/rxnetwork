@@ -211,14 +211,8 @@ html {
   position: relative;
   overflow: hidden;
   padding: 8rem 0 4rem; 
-  background-color: #000c2a !important; /* RxN Deep Blue - Force for contrast */
-  width: 100vw !important;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw !important;
-  margin-right: -50vw !important;
-  z-index: 1;
+  background-color: transparent;
+  width: 100%;
 }
 
 .hero-video-bg {
@@ -252,7 +246,7 @@ html {
   font-size: 4.5rem;
   line-height: 1.1;
   font-weight: 800;
-  color: #ffffff !important;
+  color: var(--primary);
   margin-bottom: 2rem;
 }
 
@@ -268,7 +262,7 @@ html {
 .hero-description {
   font-size: 1.5rem;
   line-height: 1.6;
-  color: #e0e7ff !important; /* Very Light Blue */
+  color: var(--primary);
   font-weight: 600;
   margin-bottom: 2rem;
   max-width: 800px;
@@ -276,7 +270,7 @@ html {
 
 .hero-body {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted);
   line-height: 1.7;
   margin-bottom: 3rem;
   max-width: 700px;
