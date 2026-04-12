@@ -590,7 +590,7 @@ const ContactSection = () => (
         </div>
         
         <div className="contact-visual">
-          <img src="/meet-the-team-image.png" alt="Talk with our team" />
+          <img src="/call-agent.webp" alt="Talk with our team" />
         </div>
       </div>
     </div>
