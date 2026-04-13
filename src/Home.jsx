@@ -292,28 +292,28 @@ const SolutionsSection = () => {
       description: "All content served programmatically for faster activation and real-time optimization. No IOs, manual trafficking or reporting.",
       cta: "Start a Programmatic Campaign",
       bg: "#3b82f6",
-      image: "/img-1-26.jpg"
+      image: "/programmatic.png"
     },
     {
       title: "Targeting & Data",
       description: "NPI, ME, DGID and contextual signals for limited specialty clinician and care teams with clinical relevance.",
       cta: "View Targeting Options",
       bg: "#2563eb",
-      image: "/img-2-26.jpg"
+      image: "/Targeting & Data.png"
     },
     {
       title: "Content Marketing & Email",
       description: "Custom content creation, specialty newsletters, and email programs that engage clinicians with trusted medical information.",
       cta: "Browse Content Programs",
       bg: "#1d4ed8",
-      image: "/img-3-26.jpg"
+      image: "/content-marketing.webp"
     },
     {
       title: "Ad Quality & Viewability",
       description: "AI-powered ad blocking for inappropriate creative, viewability scoring, and publisher-friendly weight sets to protect brand safety and performance.",
       cta: "Learn About Ad Quality",
       bg: "#1e3a8a",
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800"
+      image: "/ad quality and viewability.png"
     }
   ];
 
