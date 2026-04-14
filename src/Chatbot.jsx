@@ -66,68 +66,53 @@ const Chatbot = () => {
   }, [location.pathname, persona]);
 
   const knowledgeBase = [
-    // A. Identity
+    // A. Identity & Partners
     {
-      keywords: ['what is rxnetwork', 'what does rxnetwork do', 'who do you work with'],
-      answer: "RxNetwork helps healthcare brands reach verified clinicians through targeted digital campaigns across premium medical platforms.\n\nWe focus exclusively on healthcare, so your message appears where clinicians are actively learning and making decisions.",
-      chips: ["See Targeting Options", "Explore Email"]
+      keywords: ['what is rxnetwork', 'what does rxnetwork do', 'who do you work with', 'partners'],
+      answer: "RxNetwork connects premium medical publishers with verified HCP demand. We manage inventory for leading destinations like **Karger.com, Drugs.com, Radiopaedia, and Questex**.\n\nWe provide 100% medical-only environments for pharma, biotech, and hospital advertisers.",
+      chips: ["See Publisher List", "Explore Services"]
     },
-    // B. Decision Stage
+    // B. Audience & Scale
     {
-      keywords: ['target specific doctors', 'specialties', 'reach', 'doctors'],
-      answer: "Yes — we offer deterministic targeting using:\n• NPI (individual clinicians)\n• ME (hospitals & medical entities)\n• DGID (disease-specific audiences)\n\nThis allows you to reach highly specific specialties and decision-makers.",
-      chips: ["View Targeting Metrics", "Contact Sales"]
+      keywords: ['big is your audience', 'audience reach', 'scale', 'metrics', 'stats'],
+      answer: "Our network deliver massive clinical reach:\n• **166M+** Monthly Pageviews\n• **725M+** Monthly Ad Avails\n• **1.1M+** Verified Physician Emails\n• **8M+** Monthly POC Uniques",
+      card: { title: "Network Scale", value: "166M+ Monthly Pageviews", icon: <BarChart3 size={20} />, link: "/about" }
     },
+    // C. Targeting Details
     {
-      keywords: ['big is your audience', 'audience reach', 'scale'],
-      answer: "RxNetwork reaches 8M+ unique monthly visitors and delivers 24M+ monthly clinical page views across 100+ diagnostic and treatment tools.",
-      card: { title: "Audience Scale", value: "8M+ Monthly Uniques", icon: <BarChart3 size={20} />, link: "/about" }
+      keywords: ['target specific doctors', 'specialties', 'reach', 'doctors', 'npi', 'me', 'dgid'],
+      answer: "We offer deterministic targeting at the professional level:\n• **NPI**: Individual clinician targeting\n• **ME**: Medical entity & hospital targeting\n• **DGID**: Disease-group contextual targeting\n\nOur segment verification rate is **99.2%**.",
+      chips: ["NPI Targeting details", "Contact Sales"]
     },
-    // C. Clarity Stage
+    // D. Products: Email Marketing
     {
-      keywords: ['programmatic', 'campaigns run', 'how do you target'],
-      answer: "All RxNetwork inventory is served programmatically for real-time activation, optimization, and reporting. We utilize NPI, ME, and contextual signals for precision delivery.",
-      chips: ["What is NPI targeting?", "How do I get started?"]
-    },
-    {
-      keywords: ['npi', 'me', 'dgid', 'targeting clinicians'],
-      answer: "• **NPI**: Targeting individual clinicians by their National Provider Identifier.\n• **ME**: Targeting medical entities such as specific hospitals or clinics.\n• **DGID**: Targeting disease/diagnosis groups based on active clinical context.",
-      chips: ["See Targeting at a Glance", "Request Quote"]
-    },
-    // D. Products & Services
-    {
-      keywords: ['email marketing', 'broadcast email', 'triple opt-in'],
-      answer: "Yes — we provide premium HCP email programs designed for verified clinicians. \n\nCampaigns typically deliver:\n• High open rates\n• Strong CTR on clinical content\n• Clear reporting on engagement and conversions",
-      chips: ["Email Formats", "Audience Segments"],
+      keywords: ['email marketing', 'broadcast email', 'newsletters'],
+      answer: "Our HCP email programs are compliance-first and verified. We offer:\n• **Starter**: Single segment outreach\n• **Multi-Touch**: 4-week educational series (Recommended)\n• **Enterprise**: Always-on specialty dominance",
+      chips: ["View Pricing Tiers", "Email Compliance"],
       link: "/email-marketing", linkLabel: "Explore Email Marketing"
     },
+    // E. Products: POC Marketing
     {
-      keywords: ['point-of-care', 'poc', 'at the point of patient care'],
-      answer: "Point-of-care marketing allows you to reach clinicians while they are actively diagnosing or making treatment decisions across our clinical tools and research hub.",
-      chips: ["Where ads appear", "See POC Reach"],
-      card: { title: "POC Inventory", value: "Daily Clinical Usage", icon: <Stethoscope size={20} />, link: "/poc-marketing" }
+      keywords: ['point-of-care', 'poc', 'clinical tools', 'moment of need'],
+      answer: "Reach clinicians at the **Moment of Need**—during diagnosis, treatment calculation, and patient education. \n\nWe intercept 8M+ HCPs monthly across 100+ diagnostic and treatment tools.",
+      chips: ["POC Use Cases", "See POC Inventory"],
+      card: { title: "POC Reach", value: "24M+ POC Impressions", icon: <Stethoscope size={20} />, link: "/poc-marketing" }
     },
-    // E. Performance
+    // F. Compliance & Brand Safety
     {
-      keywords: ['results', 'what to expect', 'open rates', 'metrics', 'measure success'],
-      answer: "Our campaigns are built for measurable performance. Reporting typically includes:\n• Open rates (specialty benchmarked)\n• Click-through rates on clinical content\n• Conversion or lead metrics",
-      chips: ["View Sample Report", "Case Studies"]
+      keywords: ['compliant', 'regulations', 'safe', 'verified', 'mlr', 'isi'],
+      answer: "RxNetwork is built for regulated industries. We provide:\n• Full **MLR review** support\n• Automated **ISI/PI link** placement\n• 100% Brand Safety (No non-medical content)\n• Auditable delivery paths",
+      chips: ["Compliance Process", "Privacy Policy"]
     },
-    // F. Compliance & Trust
+    // G. Getting Started & Locations
     {
-      keywords: ['compliant', 'regulations', 'safe', 'verified'],
-      answer: "RxNetwork ensures 100% brand safety and regulatory compliance. All clinician audiences are deterministic and verified via NPI/ME credentials.",
-      chips: ["Privacy Policy", "Talk to Sales"]
-    },
-    // G. Conversion
-    {
-      keywords: ['get started', 'pricing', 'someone', 'sales', 'media kit'],
-      answer: "The best way to get started is to request a media kit or speak with our team. We’ll tailor a strategy based on your audience, goals, and campaign type.\n\n would you like to request a kit now?",
-      link: "/get-started", linkLabel: "Request Media Kit / Contact"
+      keywords: ['get started', 'pricing', 'someone', 'sales', 'media kit', 'office', 'location'],
+      answer: "You can reach our strategy team at our **New York Operations Center** or **Connecticut Strategic Hub**.\n\nReady to request a tailored media kit or audience plan?",
+      link: "/get-started", linkLabel: "Connect with a Strategist"
     },
     {
-      keywords: ['tool', 'calculator', 'research', 'insight', 'bsa', 'neuropathy', 'clinical tools'],
-      answer: "You can find 100+ specialized clinical tools and research studies in our Knowledge Hub.",
+      keywords: ['tool', 'calculator', 'research', 'insight', 'clinical tools'],
+      answer: "We host a portfolio of 100+ clinical calculators and research studies for HCPs. Explore them in our Clinical Content hub.",
       autoNavigate: "/blog"
     }
   ];

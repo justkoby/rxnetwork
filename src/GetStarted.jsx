@@ -8,7 +8,7 @@ const GetStarted = () => {
         <header className="page-header text-center">
           <span className="section-tag">Start Your Campaign</span>
           <h1 className="section-title">Schedule a <span>Strategy Session</span></h1>
-          <p className="section-body mx-auto" style={{ maxWidth: '700px' }}>
+          <p className="section-body mx-auto text-center" style={{ maxWidth: '700px' }}>
             Ready to reach clinicians with precision? Connect with our team to explore 
             tailored audience segments, programmatic POC, and high-impact email delivery.
           </p>
@@ -61,7 +61,6 @@ const GetStarted = () => {
               <div className="location-icon"><MapPin size={24} /></div>
               <div className="location-info">
                 <h4>New York</h4>
-                <p>914-208-6464</p>
                 <p>New York Operations Center</p>
               </div>
             </div>
@@ -70,7 +69,6 @@ const GetStarted = () => {
               <div className="location-icon"><MapPin size={24} /></div>
               <div className="location-info">
                 <h4>Connecticut</h4>
-                <p>203-703-9018</p>
                 <p>Northeast Strategic Hub</p>
               </div>
             </div>

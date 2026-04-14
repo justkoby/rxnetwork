@@ -243,11 +243,11 @@ html {
 }
 
 .hero-title {
-  font-size: 4.5rem;
+  font-size: 3rem; /* Adjusted to 48px for consistency */
   line-height: 1.1;
   font-weight: 800;
   color: var(--primary);
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .hero-title span {
@@ -889,7 +889,7 @@ html {
 }
 
 .process-title {
-  font-size: 3.5rem;
+  font-size: 3rem; /* Adjusted to 48px for consistency */
   font-weight: 800;
   color: var(--primary);
   margin-bottom: 8rem;
@@ -2896,7 +2896,7 @@ html {
 }
 
 .poc-headline {
-  font-size: 4.5rem;
+  font-size: 3rem; /* Adjusted to 48px for consistency */
   line-height: 1.05;
   font-weight: 850;
   color: var(--primary);
@@ -3877,28 +3877,36 @@ html {
 }
 
 .performance-text-block {
-  padding-left: 3rem;
+  padding-left: 1rem; /* Reduced from 3rem to give text more horizontal space so it wraps less */
+}
+
+.performance-text-block .section-title {
+  margin-bottom: 1rem;
+}
+
+.performance-text-block .section-body {
+  margin-bottom: 1.5rem;
 }
 
 .kpi-list-refined {
-  list-style: none !important; /* Forces removal of standard dots */
+  list-style: none !important;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin: 3.5rem 0;
+  gap: 1rem; /* Reduced from 1.5rem */
+  margin: 1.5rem 0 2.5rem 0; /* Reduced top margin from 3.5rem to 1.5rem */
   padding: 0;
 }
 
 .kpi-list-refined li {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem; /* Reduced from 1.5rem */
   align-items: center;
-  font-weight: 600;
+  font-weight: 500; /* slightly lighter to feel less bulky */
   color: var(--text-main);
   background: var(--white);
-  padding: 1.75rem 2rem;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  padding: 1.25rem 1.5rem; /* Reduced from 1.75rem 2rem */
+  border-radius: 16px; /* slightly smaller radius */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
   border: 1px solid #f1f5f9;
 }
 
@@ -3908,7 +3916,7 @@ html {
 }
 
 .performance-cta {
-  margin-top: 4rem;
+  margin-top: 2rem; /* Reduced from 4rem */
 }
 
 /* Additional rhythm for Email Page */
