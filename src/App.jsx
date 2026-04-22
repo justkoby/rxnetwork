@@ -96,7 +96,6 @@ const Footer = () => (
       <div className="footer-bottom">
         <p className="copyright">© 2026 RxNetwork. All rights reserved.</p>
         <div className="footer-legal">
-          <a href="#terms">Terms of Use</a>
           <Link to="/privacy-policy">Privacy Policy</Link>
         </div>
       </div>

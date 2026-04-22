@@ -278,7 +278,7 @@ html {
 
 .hero-cta {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.5rem;
 }
 
@@ -2470,7 +2470,7 @@ html {
 .matrix-tile {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
+  padding: 1.2rem;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -2493,6 +2493,7 @@ html {
   color: var(--white);
   font-weight: 700;
   font-size: 1rem;
+  white-space: nowrap;
 }
 
 .matrix-results {
@@ -3490,14 +3491,31 @@ html {
 
 .efficiency-item {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  align-items: flex-start;
+  gap: 1.25rem;
   background: var(--white);
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  font-weight: 700;
+  padding: 1.5rem;
+  border-radius: 16px;
   color: #0d1b4a;
-  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.efficiency-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.efficiency-item strong {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.efficiency-item p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #64748b;
+  line-height: 1.4;
 }
 
 .efficiency-icon {
@@ -3693,48 +3711,120 @@ html {
 
 /* Contact Section */
 .contact-section {
-  padding: 3rem 0 0rem;
+  padding: 8rem 0;
   background: var(--white);
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 8rem;
-  align-items: center;
-}
-
-.office-details {
+.contact-card-styled {
+  background: linear-gradient(135deg, #f3f7fe 0%, #eef2ff 100%);
+  border-radius: 48px;
+  padding: 8rem 4rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin: 3rem 0;
-  padding: 2.5rem;
-  background: #f8fafc;
-  border-radius: 24px;
-  border: 1px solid #e2e8f0;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 42, 112, 0.03);
 }
 
-.office {
-  font-size: 1.15rem;
-  color: var(--primary);
-  font-weight: 500;
+.contact-card-styled::after {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  z-index: 1;
+  pointer-events: none;
 }
 
-.office strong {
-  color: var(--primary);
-  font-weight: 800;
+.contact-badge-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  z-index: 2;
 }
 
-.office a {
+.contact-badge {
+  background: var(--white);
+  padding: 0.6rem 1.25rem;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+}
+
+.contact-badge .badge-icon {
   color: var(--secondary);
-  text-decoration: none;
-  font-weight: 700;
-  margin-left: 0.5rem;
 }
 
-.contact-visual img {
-  width: 100%;
+.contact-badge span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--secondary);
+  letter-spacing: 0.05rem;
+}
+
+.contact-content-centered {
+  max-width: 800px;
+  z-index: 2;
+}
+
+.contact-content-centered .section-title {
+  font-size: 4rem !important;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.contact-content-centered .section-title span {
+  background: linear-gradient(90deg, #1a237e 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.contact-content-centered .section-body {
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 3.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 2;
+}
+
+.contact-center-btn {
+  background: var(--primary);
+  color: var(--white);
+  padding: 1.25rem 3rem;
+  border-radius: 50px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 25px rgba(26, 35, 126, 0.2);
+}
+
+.contact-center-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(26, 35, 126, 0.3);
+  background: var(--primary-light);
 }
 
 /* Global Footer */
@@ -3866,7 +3956,7 @@ html {
 
 /* Performance Metrics Fixes (Email Page) */
 .performance-metrics {
-  padding: 15rem 0 10rem;
+  padding: 6rem 0 4rem;
 }
 
 .performance-video {
@@ -3920,10 +4010,10 @@ html {
 }
 
 /* Additional rhythm for Email Page */
-.compliance-trust { margin-top: 15rem; }
-.case-examples { margin-top: 15rem; }
-.how-we-work-alt { margin-top: 15rem; }
-.email-contact { margin-top: 15rem; }
+.compliance-trust { margin-top: 6rem; }
+.case-examples { margin-top: 6rem; }
+.how-we-work-alt { margin-top: 6rem; }
+.email-contact { margin-top: 6rem; }
 
 @media (max-width: 1024px) {
   .contact-grid, .footer-grid {
@@ -4954,7 +5044,7 @@ html {
   }
 
   .hero-cta {
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
   }
 
@@ -5324,6 +5414,7 @@ html {
     display: flex !important;
     flex-direction: column !important;
     gap: 1rem !important;
+    justify-content: flex-start !important;
   }
   .hero-cta button {
     width: 100% !important;
@@ -5572,3 +5663,52 @@ html {
 
 
 
+
+/* Added requested margins */
+.pricing-packages {
+  margin-top: 120px !important;
+}
+
+/* POC Marketing Mini Use Cases */
+.poc-use-cases-mini {
+  text-align: left;
+}
+
+.poc-use-cases-mini strong {
+  display: block;
+  color: #3b82f6;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+
+.poc-use-cases-mini p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #475569;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.poc-use-cases-mini p strong {
+  display: inline;
+  color: var(--primary);
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: inherit;
+  margin-bottom: 0;
+}
+
+.poc-use-cases-mini p:last-child {
+  margin-bottom: 0;
+}
+
+.poc-hero-img-main {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 32px;
+  box-shadow: 0 40px 80px rgba(0, 42, 112, 0.12);
+  display: block;
+  margin: 0 auto;
+}

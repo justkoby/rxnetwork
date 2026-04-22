@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Target, 
   MousePointer2, 
@@ -76,18 +77,22 @@ const POCHero = () => (
           </p>
           
           <div className="poc-quote-block">
-            <p className="poc-quote-text">
-              “RxNetwork delivers point-of-care impact through a portfolio built exclusively for healthcare. Nothing sports. Nothing politics. Nothing finance. Just medical.”
-            </p>
+            <div className="poc-use-cases-mini">
+              <strong>USE CASES:</strong>
+              <p><strong>Oncology</strong> — Engagement uplift during content on levothyroxine treatment in thyroid cancer.</p>
+              <p><strong>Endocrinology</strong> — High-value impressions during neuropathy diagnostic content.</p>
+              <p><strong>Cardiology</strong> — Strong visibility around antithyroid therapy and cardiovascular risk discussions.</p>
+            </div>
           </div>
 
           <div className="hero-cta">
-            <button className="btn-primary">Request POC Strategy Overview</button>
-            <button className="btn-outline">See Audience Insights</button>
+            <Link to="/get-started">
+              <button className="btn-primary">Request POC Strategy Overview</button>
+            </Link>
           </div>
         </div>
         <div className="poc-hero-visual">
-          <POCStatsCard />
+          <img src="/POC.webp" alt="POC Marketing" className="poc-hero-img-main" />
         </div>
       </div>
     </div>
@@ -100,9 +105,9 @@ const WhatIsPOC = () => (
       <div className="section-header text-center mb-5">
         <h2 className="section-title">A Modern, Data-Driven Approach to <span>Point-of-Care</span></h2>
         <p className="section-body text-center">
-          Traditional point-of-care channels rely on static placements and fragmented delivery. 
-          RxNetwork brings a digital-first model: programmatic activation, NPI-level precision, 
-          and clinically relevant environments that clinicians trust.
+          Traditional advertising channels rely on static placements and fragmented delivery. With POC marketing, RxNetwork brings a digital first model: programmatic activation and clinically relevant environments that clinicians trust.
+          <br /><br />
+          Our POC inventory spans electronic medical records, patient medical systems, telemedicine, and multimedia resources used by physicians, allied healthcare professionals, and medical specialists every day. POC channels offer rich targeting environments that enable ad delivery by NPI, NDC, ICD10 and other identifiers.
         </p>
       </div>
       
@@ -111,8 +116,8 @@ const WhatIsPOC = () => (
           <div className="poc-icon-pill">
             <Stethoscope size={24} />
           </div>
-          <h3>100% medical-only environment</h3>
-          <p>Purely clinical context ensures your brand resides in a space free of non-professional noise.</p>
+          <h3>POC environment</h3>
+          <p>Ad delivery occurs in EMRs, PMRs, telemed and other POC applications</p>
         </div>
         
         <div className="poc-feature-card">
@@ -120,15 +125,15 @@ const WhatIsPOC = () => (
             <Zap size={24} />
           </div>
           <h3>Programmatic delivery</h3>
-          <p>Agile, real-time activation that optimizes for reach and engagement across our premium network.</p>
+          <p>Leverage the scalability, targetability and efficiency of programmatic ad technologies</p>
         </div>
         
         <div className="poc-feature-card">
           <div className="poc-icon-pill">
             <Target size={24} />
           </div>
-          <h3>Advanced PLD targeting</h3>
-          <p>Precision targeting at the NPI level using physician-level data for maximum message relevance.</p>
+          <h3>Rich targeting</h3>
+          <p>Target demand by NPI as well as NDC, ICD10, and other identifiers</p>
         </div>
         
         <div className="poc-feature-card">
@@ -207,15 +212,15 @@ const POCInventory = () => (
       <div className="section-header text-center mb-5">
         <h2 className="poc-headline text-center">Where Your Message Appears</h2>
         <p className="poc-hero-subtitle" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          Our POC environments are built around original, expert-developed medical resources like clinical calculators, medical reference materials, and specialty articles.
+          Our POC environments are built around original, expert-developed medical resources like E-prescribing modules, medication-order workflows, and clinical decision support moments.
         </p>
       </div>
       
       <div className="poc-inventory-grid">
         <div className="poc-inventory-card">
           <div className="inventory-icon"><FileText size={28} /></div>
-          <h4>Clinical Articles</h4>
-          <p>Specialist-authored medical insights.</p>
+          <h4>E-prescribing</h4>
+          <p>New scripts, refills Renewals.</p>
         </div>
         <div className="poc-inventory-card">
           <div className="inventory-icon"><Calculator size={28} /></div>
@@ -363,19 +368,31 @@ const ProgrammaticAdvantage = () => (
           <div className="poc-efficiency-list">
             <div className="efficiency-item">
               <CheckCircle2 className="efficiency-icon" size={24} />
-              <span>AI-powered ad blocking and brand safety</span>
+              <div>
+                <strong>Brand Awareness at Diagnosis</strong>
+                <p>Reach clinicians reviewing diagnostic criteria, imaging, or lab interpretation content.</p>
+              </div>
             </div>
             <div className="efficiency-item">
               <CheckCircle2 className="efficiency-icon" size={24} />
-              <span>MRC-accredited viewability optimization</span>
+              <div>
+                <strong>Treatment Consideration Moments</strong>
+                <p>Align messaging with therapeutic guidelines, treatment comparisons, and specialty workflows.</p>
+              </div>
             </div>
             <div className="efficiency-item">
               <CheckCircle2 className="efficiency-icon" size={24} />
-              <span>Lightweight, publisher-friendly deployment</span>
+              <div>
+                <strong>Patient-Education Support</strong>
+                <p>Reinforce brand value during shared decision-making moments.</p>
+              </div>
             </div>
             <div className="efficiency-item">
               <CheckCircle2 className="efficiency-icon" size={24} />
-              <span>Real-time KPI and NPI-level optimization</span>
+              <div>
+                <strong>Health System & Device Messaging</strong>
+                <p>Engage clinicians evaluating procedures, devices, or system-level solutions.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -386,12 +403,8 @@ const ProgrammaticAdvantage = () => (
             
             <div className="poc-performance-grid">
               <div className="perf-metric">
-                <strong>88%</strong>
+                <strong>80% to 100%</strong>
                 <span>Viewability</span>
-              </div>
-              <div className="perf-metric">
-                <strong>0.45%</strong>
-                <span>CTR Peak</span>
               </div>
               <div className="perf-metric">
                 <strong>100%</strong>
@@ -446,7 +459,9 @@ const POCContact = () => (
       <div className="poc-cta-card">
         <h2>Let's Build Your POC Strategy</h2>
         <p>Our team is ready to help you design a point-of-care program that aligns with your brand goals and clinical audience needs.</p>
-        <button className="poc-cta-button">Request a POC Consultation</button>
+        <Link to="/get-started">
+          <button className="poc-cta-button">Request a POC Consultation</button>
+        </Link>
       </div>
     </div>
   </section>
@@ -462,7 +477,6 @@ const POCMarketing = () => {
       <POCTargeting />
       <POCUseCases />
       <ProgrammaticAdvantage />
-      <CaseTeasers />
       <POCContact />
     </div>
   );

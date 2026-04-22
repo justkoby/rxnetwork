@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Users, 
   Target, 
@@ -41,7 +42,9 @@ const AboutHero = () => (
           RxNetwork connects premium medical publishers with verified HCP demand from leading pharma, hospitals, biotech, and medical device advertisers.
         </p>
         <div className="hero-cta">
-          <button className="btn-primary">Partner With Us</button>
+          <Link to="/get-started">
+            <button className="btn-primary">Partner With Us</button>
+          </Link>
           <button className="btn-outline white-btn">See Our Capabilities</button>
         </div>
       </div>

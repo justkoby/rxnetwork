@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Mail, 
   Target, 
@@ -30,7 +31,7 @@ const EmailHero = () => (
           <span className="badge"><Award size={16} /> Compliance-First</span>
         </div>
         <h1 className="hero-title">
-          Premium <span>HCP Email Marketing</span>
+          <span>HCP Email Marketing</span>
         </h1>
         <p className="hero-subtitle">
           Direct, compliant access to oncologists, cardiologists, hematologists, and other high-value specialists.
@@ -39,8 +40,9 @@ const EmailHero = () => (
           Specialized email programs built for clinicians: verified, healthcare-only audiences, high engagement, and compliance-first creative standards. Deliver evidence-aligned content that clinicians open, read, and act on.
         </p>
         <div className="hero-cta">
-          <button className="btn-primary">Request a Media Kit</button>
-          <button className="btn-outline">Get Audience Segmentation</button>
+          <Link to="/get-started">
+            <button className="btn-primary">Request a Media Kit</button>
+          </Link>
         </div>
       </div>
       <div className="email-hero-visual">
@@ -184,7 +186,6 @@ const CampaignFormats = () => (
               <li>PI links and mandatory disclaimers</li>
               <li>Pre-campaign creative review</li>
             </ul>
-            <button className="btn-text">Request Creative Guidelines <ChevronRight size={16} /></button>
           </div>
         </div>
       </div>
@@ -219,7 +220,6 @@ const TargetingSegmentation = () => (
             </div>
           </div>
           
-          <button className="btn-primary blue-glow">Customize My Segment</button>
         </div>
         
         <div className="targeting-matrix-card animate-blur-fade stagger-2">
@@ -286,14 +286,6 @@ const PerformanceMetrics = () => (
               <span>Full compliance logging and auditable delivery path</span>
             </li>
           </ul>
-          <div className="performance-cta">
-            <button 
-              className="btn-primary"
-              onClick={() => window.location.href = '/get-started'}
-            >
-              View Reporting Dashboard
-            </button>
-          </div>
         </div>
       </div>
     </div>
@@ -395,7 +387,7 @@ const ComplianceTrust = () => {
               ))}
             </div>
             
-            <button className="btn-text mt-4">Review Compliance Process <ArrowRight size={16} /></button>
+
           </div>
           
           <div className="compliance-flow-card animate-blur-fade stagger-1">
@@ -492,7 +484,9 @@ const EmailContact = () => (
       <div className="contact-card animate-blur-fade">
         <h2 className="section-title white">Start a compliant, <span>high-impact HCP email program</span></h2>
         <p className="white opacity-8">Custom proposals, audience segmentation, and strategy support are included.</p>
-        <button className="btn-primary white-pulse">Contact Us</button>
+        <Link to="/get-started">
+          <button className="btn-primary white-pulse">Contact Us</button>
+        </Link>
       </div>
     </div>
   </section>
@@ -507,10 +501,10 @@ const EmailMarketing = () => {
       <CampaignFormats />
       <TargetingSegmentation />
       <PerformanceMetrics />
-      <PricingPackages />
       <ComplianceTrust />
       <HowWeWork />
       <EmailContact />
+      <PricingPackages />
     </div>
   );
 };

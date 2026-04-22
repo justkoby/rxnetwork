@@ -120,7 +120,7 @@ const Chatbot = () => {
   const selectPersona = (p) => {
     setPersona(p);
     localStorage.setItem('rx_persona', p);
-    const text = p === 'hcp' ? "I'm a Healthcare Professional (HCP)" : "I'm a Medical Marketer";
+    const text = p === 'hcp' ? "I'm a Healthcare advertiser" : "I'm a Healthcare publisher";
     setMessages(prev => [...prev, { id: Date.now(), text, sender: 'user' }]);
     
     setIsTyping(true);
@@ -282,10 +282,10 @@ const Chatbot = () => {
                 {msg.type === 'onboarding' && !persona && (
                   <div className="persona-selection animate-blur-fade">
                     <button onClick={() => selectPersona('hcp')} className="persona-btn">
-                      <Stethoscope size={18} /> HCP
+                      <Stethoscope size={18} /> Healthcare advertiser
                     </button>
                     <button onClick={() => selectPersona('marketer')} className="persona-btn">
-                      <BarChart3 size={18} /> Marketer
+                      <BarChart3 size={18} /> Healthcare publisher
                     </button>
                   </div>
                 )}

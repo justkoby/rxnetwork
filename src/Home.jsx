@@ -16,7 +16,9 @@ import {
   FileText,
   Mail,
   Megaphone,
-  ArrowRight
+  ArrowRight,
+  Sparkles,
+  Phone
 } from 'lucide-react';
 
 const Hero = () => {
@@ -47,7 +49,9 @@ const Hero = () => {
             properties. We focus only on medical content, no sports, politics, or finance.
           </p>
           <div className="hero-cta animate-blur-fade stagger-4">
-            <button className="btn-primary">Request a Media Kit</button>
+            <Link to="/get-started">
+              <button className="btn-primary">Request a Media Kit</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -361,7 +365,20 @@ const SolutionsSection = () => {
                       <div className="rx-pattern">RX</div>
                       <h3>{solution.title}</h3>
                       <p>{solution.description}</p>
-                      <button className="btn-card-cta">{solution.cta}</button>
+                      <button 
+                        className="btn-card-cta"
+                        onClick={() => {
+                          if (solution.cta.toLowerCase().includes('programmatic') || solution.cta.toLowerCase().includes('content')) {
+                            window.location.href = '/poc-marketing';
+                          } else if (solution.cta.toLowerCase().includes('targeting')) {
+                            window.location.href = '/email-marketing';
+                          } else {
+                            window.location.href = '/get-started';
+                          }
+                        }}
+                      >
+                        {solution.cta}
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -561,21 +578,28 @@ const ProcessSection = () => {
 };
 
 const ContactSection = () => (
-  <section className="contact-section animate-blur-fade">
+  <section className="contact-section animate-blur-fade" id="contact">
     <div className="container">
-      <div className="contact-grid">
-        <div className="contact-content">
-          <h2 className="section-title">Talk with <span>our team</span></h2>
-          <p className="section-body">
-            Ready to reach clinicians with clinical relevance and programmatic efficiency? 
-            Contact us and we'll respond with a tailored media kit and audience plan.
-          </p>
-          
-          <button className="btn-primary contact-btn">Inquire / Contact Sales</button>
+      <div className="contact-card-styled">
+        <div className="contact-badge-container">
+          <div className="contact-badge">
+            <Sparkles size={16} className="badge-icon" />
+            <span>GET STARTED TODAY</span>
+          </div>
         </div>
         
-        <div className="contact-visual">
-          <img src="/call-agent.webp" alt="Talk with our team" />
+        <div className="contact-content-centered">
+          <h2 className="section-title">Ready to <span>reach your audience?</span></h2>
+          <p className="section-body">
+            RxNetwork simplifies healthcare media by pairing clinical credibility with 
+            modern programmatic delivery. Let's build your next campaign together.
+          </p>
+          
+          <div className="contact-actions">
+            <Link to="/get-started">
+              <button className="btn-primary contact-center-btn">Inquire / Contact Sales</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
