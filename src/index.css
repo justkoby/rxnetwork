@@ -246,13 +246,13 @@ html {
   font-size: 3rem; /* Adjusted to 48px for consistency */
   line-height: 1.1;
   font-weight: 800;
-  color: var(--primary);
+  color: var(--white);
   margin-bottom: 2.5rem;
 }
 
 .hero-title span {
   display: block;
-  background: linear-gradient(90deg, #002A70 0%, #56B6FF 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #56B6FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -262,7 +262,7 @@ html {
 .hero-description {
   font-size: 1.5rem;
   line-height: 1.6;
-  color: var(--primary);
+  color: var(--white);
   font-weight: 600;
   margin-bottom: 2rem;
   max-width: 800px;
@@ -270,7 +270,7 @@ html {
 
 .hero-body {
   font-size: 1.1rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.7;
   margin-bottom: 3rem;
   max-width: 700px;

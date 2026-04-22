@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section className="hero">
       <video 
-        src="/bg-vid.webm" 
+        src="/Molecular- homepage hero 0421-26 (1).webm" 
         autoPlay 
         muted 
         loop 
