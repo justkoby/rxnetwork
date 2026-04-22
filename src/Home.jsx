@@ -296,7 +296,7 @@ const SolutionsSection = () => {
       description: "All content served programmatically for faster activation and real-time optimization. No IOs, manual trafficking or reporting.",
       cta: "Start a Programmatic Campaign",
       bg: "#3b82f6",
-      image: "/programmatic.png"
+      image: "/POC-new.webp"
     },
     {
       title: "Targeting & Data",
