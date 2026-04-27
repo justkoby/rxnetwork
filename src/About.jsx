@@ -341,6 +341,19 @@ const AdvertisingFootprint = () => {
 };
 
 const ExpandedServices = () => {
+  const [activeIdx, setActiveIdx] = React.useState(0);
+  const scrollRef = React.useRef(null);
+
+  const handleScroll = (e) => {
+    if (window.innerWidth > 768) return;
+    const scrollLeft = e.target.scrollLeft;
+    const itemWidth = e.target.offsetWidth;
+    const newIdx = Math.round(scrollLeft / itemWidth);
+    if (newIdx !== activeIdx) {
+      setActiveIdx(newIdx);
+    }
+  };
+
   const services = [
     {
       title: "Social Media",
@@ -363,14 +376,36 @@ const ExpandedServices = () => {
     <section className="expanded-services">
       <div className="container">
         <h2 className="section-title text-center animate-blur-fade mobile-font-sm">Beyond Monetization: <span>Full-Spectrum Digital Support</span></h2>
-        <div className="three-column-grid">
-          {services.map((s, i) => (
-            <div key={i} className={`service-card-alt animate-blur-fade stagger-${i+1}`}>
-              <div className="icon-box">{s.icon}</div>
-              <h3>{s.title}</h3>
-              <p>{s.desc}</p>
-            </div>
-          ))}
+        <div className="three-column-grid-wrapper">
+          <div 
+            className="three-column-grid"
+            ref={scrollRef}
+            onScroll={handleScroll}
+          >
+            {services.map((s, i) => (
+              <div key={i} className={`service-card-alt animate-blur-fade stagger-${i+1}`}>
+                <div className="icon-box">{s.icon}</div>
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="carousel-dots about-dots">
+            {services.map((_, i) => (
+              <div 
+                key={i} 
+                className={`dot ${activeIdx === i ? 'active' : ''}`}
+                onClick={() => {
+                  if (scrollRef.current) {
+                    scrollRef.current.scrollTo({
+                      left: i * scrollRef.current.offsetWidth,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
