@@ -277,13 +277,15 @@ const AudienceSection = () => {
 const SolutionsSection = () => {
   const [scrollProgress, setScrollProgress] = React.useState(0);
   const sectionRef = React.useRef(null);
+  const stackRef = React.useRef(null);
 
   React.useEffect(() => {
     const handleScroll = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const scrolled = -rect.top;
-      setScrollProgress(scrolled);
+      if (!stackRef.current) return;
+      const rect = stackRef.current.getBoundingClientRect();
+      // Track how far we've scrolled PAST the sticky point (110px)
+      const scrolledPastSticky = 110 - rect.top;
+      setScrollProgress(scrolledPastSticky);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -330,24 +332,24 @@ const SolutionsSection = () => {
           </h2>
         </div>
 
-        <div className="solutions-stack">
+        <div className="solutions-stack" ref={stackRef}>
           {solutions.map((solution, index) => {
-            const cardProgress = Math.max(0, scrollProgress - (index * window.innerHeight));
-            const progressToNext = Math.min(1, Math.max(0, (scrollProgress - (index * window.innerHeight)) / window.innerHeight));
+            const scrollStep = 800; // Natural scroll distance to cover card
+            const cardProgress = Math.max(0, scrollProgress - (index * scrollStep));
+            const progressToNext = Math.min(1, Math.max(0, (scrollProgress - (index * scrollStep)) / scrollStep));
             
-            // This card starts scaling down as the next one arrives
-            const scale = 1 - (progressToNext * 0.05);
-            const opacity = 1 - (progressToNext * 0.5); // Subtle dimming instead of disappearing
-            const translateY = - (progressToNext * 50); // Slight upward float
+            // This card starts scaling down and fading as the next one arrives
+            const scale = 1 - (progressToNext * 0.1); // Scale down to 0.9
+            const opacity = 1 - (progressToNext * 0.5); // Fade to 0.5
             
             return (
               <div 
                 key={index} 
                 className="solution-card-wrapper"
                 style={{ 
-                  top: `${110 + (index * 5)}px`, // Staggered sticky top for deck effect
-                  opacity: 1, // Keep visible for stacking
-                  transform: `translateY(${translateY}px) scale(${scale})`,
+                  top: `${110 + (index * 20)}px`, 
+                  opacity: 1, 
+                  transform: `scale(${scale})`,
                   zIndex: 10 + index,
                   position: 'sticky',
                   filter: `brightness(${1 - (progressToNext * 0.4)})`
