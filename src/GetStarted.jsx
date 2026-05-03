@@ -1,7 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 const GetStarted = () => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    company: '',
+    email: '',
+    service: 'Email Marketing',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { fullName, company, email, service, message } = formData;
+    
+    const subject = `RxNetwork Inquiry from ${fullName}`;
+    const body = `Full Name: ${fullName}
+Company / Organization: ${company}
+Email Address: ${email}
+Service of Interest: ${service}
+
+Message / Campaign Goals:
+${message}`;
+
+    window.location.href = `mailto:info@rxnetwork.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <div className="get-started-page animate-blur-fade">
       <div className="container">
@@ -17,26 +49,51 @@ const GetStarted = () => {
         <div className="get-started-grid">
           <div className="contact-form-container">
             <h3>Send us an inquiry</h3>
-            <form className="clinical-form">
+            <form className="clinical-form" onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-group">
                   <label>Full Name</label>
-                  <input type="text" placeholder="Dr. John Smith" />
+                  <input 
+                    type="text" 
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    placeholder="Dr. John Smith" 
+                    required 
+                  />
                 </div>
                 <div className="form-group">
                   <label>Company / Organization</label>
-                  <input type="text" placeholder="Healthcare Brand" />
+                  <input 
+                    type="text" 
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    placeholder="Healthcare Brand" 
+                    required 
+                  />
                 </div>
               </div>
               
               <div className="form-group">
                 <label>Email Address</label>
-                <input type="email" placeholder="john@example.com" />
+                <input 
+                  type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="john@example.com" 
+                  required 
+                />
               </div>
 
               <div className="form-group">
                 <label>Service of Interest</label>
-                <select>
+                <select 
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                >
                   <option>Email Marketing</option>
                   <option>Point-of-Care (POC)</option>
                   <option>Audience Segmenting</option>
@@ -46,7 +103,14 @@ const GetStarted = () => {
 
               <div className="form-group">
                 <label>How can we help?</label>
-                <textarea rows="5" placeholder="Tell us about your campaign goals..."></textarea>
+                <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows="5" 
+                  placeholder="Tell us about your campaign goals..."
+                  required
+                ></textarea>
               </div>
 
               <button type="submit" className="btn-primary w-full">
